@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgvhrko6ftggv"]
+
+[ext_resource type="PackedScene" uid="uid://dydu2tjr1rylg" path="res://Scenes/Enemies/base_enemy.tscn" id="1_ni3fo"]
+[ext_resource type="Script" uid="uid://ikf0v6jkpqco" path="res://Scenes/Enemies/Driplet/driplet.gd" id="2_ukoh7"]
+
+[node name="Driplet" instance=ExtResource("1_ni3fo")]
+script = ExtResource("2_ukoh7")
