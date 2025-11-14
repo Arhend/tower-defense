@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://5qpus177p1k8"]
+[gd_scene load_steps=16 format=4 uid="uid://5qpus177p1k8"]
 
 [ext_resource type="Script" uid="uid://djguggas7vstx" path="res://Scenes/Levels/base_level.gd" id="1_s0vl6"]
 [ext_resource type="Script" uid="uid://bpfeyhcmsaa4p" path="res://Scenes/Levels/enemy_pooling_service.gd" id="1_ssatm"]
@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dj5xtll812peh" path="res://Assets/Dev/dev_assets.png" id="4_lai3q"]
 [ext_resource type="Script" uid="uid://dqnovi8crfkd7" path="res://Scenes/Levels/debug_service.gd" id="5_30ow2"]
 [ext_resource type="Script" uid="uid://djxb7qbvtcs1k" path="res://Scenes/Levels/life_management_service.gd" id="6_iemmg"]
-[ext_resource type="PackedScene" uid="uid://cfwbn1expd5ho" path="res://Scenes/Towers/base_tower.tscn" id="7_3b8rg"]
+[ext_resource type="Script" uid="uid://p68j6fld5d4b" path="res://Scenes/Levels/tower_purchase_service.gd" id="7_xghcx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_30ow2"]
 texture = ExtResource("4_lai3q")
@@ -40,6 +40,13 @@ texture = ExtResource("4_lai3q")
 [sub_resource type="TileSet" id="TileSet_30ow2"]
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_lai3q")
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3b8rg"]
+size = Vector2(32, 32)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xghcx"]
+resource_local_to_scene = true
+size = Vector2(32, 32)
 
 [node name="BaseLevel" type="Node2D"]
 script = ExtResource("1_s0vl6")
@@ -87,22 +94,52 @@ autostart = true
 [node name="LifeManagementService" type="Node2D" parent="Services"]
 script = ExtResource("6_iemmg")
 
+[node name="TowerPurchaseService" type="Node2D" parent="Services"]
+script = ExtResource("7_xghcx")
+
+[node name="SelectedTexture" type="TextureRect" parent="Services/TowerPurchaseService"]
+modulate = Color(1, 1, 1, 0.6862745)
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.3, 0.3)
+
 [node name="LevelUI" type="CanvasLayer" parent="."]
 
 [node name="LifeCount" type="Label" parent="LevelUI"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -28.0
+offset_left = -179.0
+offset_right = -151.0
 offset_bottom = 23.0
 grow_horizontal = 0
 text = "000"
 
-[node name="Towers" type="Node2D" parent="."]
+[node name="Towers" type="VBoxContainer" parent="LevelUI"]
+custom_minimum_size = Vector2(128, 0)
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="BaseTower" parent="Towers" instance=ExtResource("7_3b8rg")]
-position = Vector2(227, 134)
+[node name="ScrollContainer" type="ScrollContainer" parent="LevelUI/Towers"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelUI/Towers/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="BrushTowerButton" type="TextureButton" parent="LevelUI/Towers/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("PlaceholderTexture2D_3b8rg")
+texture_pressed = SubResource("PlaceholderTexture2D_xghcx")
 
 [connection signal="timeout" from="Services/DebugService/ActivateEnemyTimer" to="Services/DebugService" method="_on_activate_enemy_timer_timeout"]
+[connection signal="pressed" from="LevelUI/Towers/ScrollContainer/VBoxContainer/BrushTowerButton" to="Services/TowerPurchaseService" method="_on_brush_tower_button_pressed"]
 
 [editable path="Services/EnemyPoolingService/EnemyNavigationPoints"]

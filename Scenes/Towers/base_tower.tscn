@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://clkbtbldnjkhh" path="res://Scenes/Towers/base_tower.gd" id="1_yji8t"]
 [ext_resource type="PackedScene" uid="uid://c6hijlinaypil" path="res://Scenes/Towers/Projectiles/base_projectile.tscn" id="2_jviep"]
-[ext_resource type="Texture2D" uid="uid://8xx84n1iwa8p" path="res://icon.svg" id="2_m8eit"]
+[ext_resource type="Texture2D" uid="uid://csfaw2blqjs8v" path="res://Assets/Dev/green16x16.png" id="3_jviep"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jviep"]
 
@@ -20,8 +20,7 @@ projectile = ExtResource("2_jviep")
 shape = SubResource("RectangleShape2D_jviep")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.171875, 0.171875)
-texture = ExtResource("2_m8eit")
+texture = ExtResource("3_jviep")
 
 [node name="AttackRange" type="Area2D" parent="."]
 collision_layer = 0

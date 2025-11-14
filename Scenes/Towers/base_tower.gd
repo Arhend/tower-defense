@@ -1,5 +1,7 @@
 extends Area2D
 
+class_name BaseTower
+
 @export var attack_range: float = 100.0
 @export var attack_speed: float = 3.0
 @export var projectile: PackedScene
@@ -34,13 +36,11 @@ func spawn_projectile(target: BaseEnemy):
         
 func _on_attack_range_area_entered(area):
     if area.is_in_group("enemy") and area.in_use:
-        LoggerManager.debug("%s in range" % area.name)
         enemies_in_range.append(area)
         attack()
 
 func _on_attack_range_area_exited(area):
     if area.is_in_group("enemy") and area.in_use:
-        LoggerManager.debug("%s left range" % area.name)
         enemies_in_range.erase(area)
 
 func _on_enemy_deactivated(enemy: BaseEnemy):
