@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtw3a3qlxarfw"]
+
+[ext_resource type="PackedScene" uid="uid://dydu2tjr1rylg" path="res://Scenes/Enemies/base_enemy.tscn" id="1_kb85v"]
+[ext_resource type="Script" uid="uid://ba72myng1ccd" path="res://Scenes/Enemies/Gloplet/gloplet.gd" id="2_cg723"]
+[ext_resource type="Texture2D" uid="uid://bedqxe1pfye1v" path="res://Assets/Dev/purple16x16.png" id="2_mc54m"]
+
+[node name="Gloplet" instance=ExtResource("1_kb85v")]
+script = ExtResource("2_cg723")
+speed = 30.0
+health = 2
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_mc54m")

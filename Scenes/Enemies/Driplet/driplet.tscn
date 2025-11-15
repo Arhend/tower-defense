@@ -5,3 +5,5 @@
 
 [node name="Driplet" instance=ExtResource("1_ni3fo")]
 script = ExtResource("2_ukoh7")
+speed = 30.0
+health = 1

@@ -1,3 +1,3 @@
 extends BaseEnemy
 
-class_name Driplet
+class_name Gloplet
