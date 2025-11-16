@@ -10,21 +10,24 @@ class_name BaseTower
 @onready var attack_timer = $AttackTimer
 
 var enemies_in_range: Array[BaseEnemy]
+var can_attack := true
 
 func _ready():
     collision_shape_2d.shape.radius = attack_range
     SignalManager.on_enemy_deactivated.connect(_on_enemy_deactivated)
     attack_timer.wait_time = attack_speed
 
-func attack():
-    if attack_timer.is_stopped() and len(enemies_in_range) > 0:
-        attack_timer.start(attack_timer.wait_time)
-        LoggerManager.debug("Attacking %s" % enemies_in_range[0].name)
-        attack_timer.start()
+func try_attack():
+    # Only attack if cooldown ready AND we have a target
+    if can_attack and enemies_in_range.size() > 0:
+        fire_once()
+        can_attack = false
+        attack_timer.start()   # start cooldown
 
-        spawn_projectile(enemies_in_range[0])
-    else:
-        attack_timer.stop()
+func fire_once():
+    var target = enemies_in_range[0]
+    if target and target.in_use:
+        spawn_projectile(target)
 
 func spawn_projectile(target: BaseEnemy):
     if projectile:
@@ -37,14 +40,17 @@ func spawn_projectile(target: BaseEnemy):
 func _on_attack_range_area_entered(area):
     if area.is_in_group("enemy") and area.in_use:
         enemies_in_range.append(area)
-        attack()
+        try_attack()
 
 func _on_attack_range_area_exited(area):
-    if area.is_in_group("enemy") and area.in_use:
-        enemies_in_range.erase(area)
+    enemies_in_range.erase(area)
 
 func _on_enemy_deactivated(enemy: BaseEnemy):
     enemies_in_range.erase(enemy)
 
 func _on_attack_timer_timeout():
-    attack()
+    # Cooldown finished
+    can_attack = true
+
+    # If enemy is still here, attack immediately
+    try_attack()

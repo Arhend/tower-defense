@@ -2,6 +2,8 @@ extends Area2D
 
 class_name BaseEnemy
 
+const OFF_SCREEN_POSITION: Vector2 = Vector2(-10000, -10000)
+
 var in_use := false
 var start_position: Vector2 = Vector2.ZERO
 var exit_position: Vector2 = Vector2.ZERO
@@ -21,8 +23,8 @@ func deactivate():
     visible = false
     set_physics_process(false)
     in_use = false
+    global_position = OFF_SCREEN_POSITION
     SignalManager.on_enemy_deactivated.emit(self)
-
 
 func take_damage(damage: int):
     health -= damage
