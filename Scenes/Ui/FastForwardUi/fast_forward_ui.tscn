@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://8b0l5glc75b2"]
+
+[ext_resource type="Script" uid="uid://eq5cxe82h8d1" path="res://Scenes/Ui/FastForwardUi/fast_forward_ui.gd" id="1_unmg1"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_gk6v1"]
+size = Vector2(32, 32)
+
+[node name="FastForwardUi" type="ColorRect"]
+offset_right = 170.0
+offset_bottom = 40.0
+color = Color(1, 1, 1, 0)
+script = ExtResource("1_unmg1")
+
+[node name="FastForwardButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -16.0
+offset_right = 32.0
+offset_bottom = 16.0
+grow_vertical = 2
+texture_normal = SubResource("PlaceholderTexture2D_gk6v1")
+
+[node name="DebugSpeedLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "1x"
+
+[connection signal="pressed" from="FastForwardButton" to="." method="_on_fast_forward_button_pressed"]
