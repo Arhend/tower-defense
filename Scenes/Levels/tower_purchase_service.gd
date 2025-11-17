@@ -16,7 +16,7 @@ func _input(event):
     elif selected_tower and event.is_action_pressed("secondary"):
         deactivate()
 
-func _process(delta):
+func _process(_delta):
     if selected_tower:
         selected_tower_area.global_position = get_global_mouse_position()
 
@@ -48,16 +48,16 @@ func disable_placement():
     can_place = false
     selected_texture.modulate = Color.RED
 
-func _on_selected_tower_area_area_entered(area):
+func _on_selected_tower_area_area_entered(_area):
     disable_placement()
     
-func _on_selected_tower_area_area_exited(area):
+func _on_selected_tower_area_area_exited(_area):
     enable_placement()
     
 # This is for no build layer since the tilemap
 # has physical bodies rather area2d
-func _on_selected_tower_area_body_entered(body):
+func _on_selected_tower_area_body_entered(_body):
     disable_placement()
     
-func _on_selected_tower_area_body_exited(body):
+func _on_selected_tower_area_body_exited(_body):
     enable_placement()

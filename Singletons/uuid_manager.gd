@@ -21,7 +21,7 @@ static func uuidbinrng(rng: RandomNumberGenerator):
     rng.randi() & BYTE_MASK, rng.randi() & BYTE_MASK, rng.randi() & BYTE_MASK, rng.randi() & BYTE_MASK,
   ]
 
-static func v4():
+func v4():
   # 16 random bytes with the bytes on index 6 and 8 modified
   var b = uuidbin()
 
@@ -74,19 +74,19 @@ func as_array():
 func as_dict(big_endian := true):
   if big_endian:
     return {
-      "low"  : (_uuid[0]  << 24) + (_uuid[1]  << 16) + (_uuid[2]  << 8 ) +  _uuid[3],
-      "mid"  : (_uuid[4]  << 8 ) +  _uuid[5],
-      "hi"   : (_uuid[6]  << 8 ) +  _uuid[7],
-      "clock": (_uuid[8]  << 8 ) +  _uuid[9],
-      "node" : (_uuid[10] << 40) + (_uuid[11] << 32) + (_uuid[12] << 24) + (_uuid[13] << 16) + (_uuid[14] << 8 ) +  _uuid[15]
+      "low": (_uuid[0] << 24) + (_uuid[1] << 16) + (_uuid[2] << 8) + _uuid[3],
+      "mid": (_uuid[4] << 8) + _uuid[5],
+      "hi": (_uuid[6] << 8) + _uuid[7],
+      "clock": (_uuid[8] << 8) + _uuid[9],
+      "node": (_uuid[10] << 40) + (_uuid[11] << 32) + (_uuid[12] << 24) + (_uuid[13] << 16) + (_uuid[14] << 8) + _uuid[15]
     }
   else:
     return {
-      "low"  : _uuid[0]          + (_uuid[1]  << 8 ) + (_uuid[2]  << 16) + (_uuid[3]  << 24),
-      "mid"  : _uuid[4]          + (_uuid[5]  << 8 ),
-      "hi"   : _uuid[6]          + (_uuid[7]  << 8 ),
-      "clock": _uuid[8]          + (_uuid[9]  << 8 ),
-      "node" : _uuid[10]         + (_uuid[11] << 8 ) + (_uuid[12] << 16) + (_uuid[13] << 24) + (_uuid[14] << 32) + (_uuid[15] << 40)
+      "low": _uuid[0] + (_uuid[1] << 8) + (_uuid[2] << 16) + (_uuid[3] << 24),
+      "mid": _uuid[4] + (_uuid[5] << 8),
+      "hi": _uuid[6] + (_uuid[7] << 8),
+      "clock": _uuid[8] + (_uuid[9] << 8),
+      "node": _uuid[10] + (_uuid[11] << 8) + (_uuid[12] << 16) + (_uuid[13] << 24) + (_uuid[14] << 32) + (_uuid[15] << 40)
     }
     
 func as_string():

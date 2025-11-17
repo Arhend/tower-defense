@@ -8,6 +8,7 @@
 script = ExtResource("2_cg723")
 speed = 30.0
 health = 2
+gold_on_death = 2
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_mc54m")

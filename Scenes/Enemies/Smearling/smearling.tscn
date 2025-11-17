@@ -7,6 +7,7 @@
 [node name="Smearling" instance=ExtResource("1_q0abp")]
 script = ExtResource("2_duwh0")
 speed = 35.0
+gold_on_death = 3
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_ygwns")

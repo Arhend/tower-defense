@@ -10,7 +10,7 @@ var exit_position: Vector2 = Vector2.ZERO
 
 @export var speed: float = 50.0
 @export var health: int = 3
-
+@export var gold_on_death: int = 1
 @onready var navigation_agent_2d := $NavigationAgent2D
 
 func activate():
@@ -30,7 +30,8 @@ func take_damage(damage: int):
     health -= damage
     
     if health <= 0:
-       deactivate()
+        deactivate()
+        SignalManager.on_gold_earned.emit(gold_on_death)
         
 func _physics_process(delta):
     if not in_use:
