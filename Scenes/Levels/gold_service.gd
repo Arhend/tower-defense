@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name GoldService
+
 @export var gold_ui: GoldUI
 @export var gold := 0
 
@@ -15,6 +17,9 @@ func _ready():
         return
         
     gold_ui.set_ui_text(gold)
+
+func get_gold_amount() -> int:
+    return gold
 
 func _on_gold_earned(value: int):
     gold += value
