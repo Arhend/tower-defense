@@ -10,8 +10,8 @@ font_size = 24
 font_color = Color(0, 0, 0, 1)
 
 [node name="GoldUI" type="ColorRect"]
-offset_right = 167.0
-offset_bottom = 39.0
+offset_right = 170.0
+offset_bottom = 40.0
 color = Color(1, 1, 1, 0)
 script = ExtResource("1_y28hg")
 

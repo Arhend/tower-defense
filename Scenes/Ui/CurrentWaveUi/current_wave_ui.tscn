@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://cye5asjn6xx0n"]
+
+[ext_resource type="Script" uid="uid://cy65vcjf4uq7w" path="res://Scenes/Ui/CurrentWaveUi/current_wave_ui.gd" id="1_ugmcp"]
+
+[node name="CurrentWaveUi" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -982.0
+offset_bottom = -608.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+script = ExtResource("1_ugmcp")
+
+[node name="CurrentWaveLabel" type="Label" parent="."]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 1.0
+offset_bottom = 31.0
+grow_vertical = 2
+text = "1"

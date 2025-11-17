@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3iglwy70nwwi"]
+
+[ext_resource type="Script" uid="uid://b2os62j4by2av" path="res://Scenes/Ui/StartNextWaveUi/start_next_wave_ui.gd" id="1_ui11n"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ui11n"]
+size = Vector2(32, 32)
+
+[node name="StartNextWaveUi" type="ColorRect"]
+custom_minimum_size = Vector2(170, 40)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 1, 1, 0)
+script = ExtResource("1_ui11n")
+
+[node name="StartNextWaveButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -16.0
+offset_right = 32.0
+offset_bottom = 16.0
+grow_vertical = 2
+texture_normal = SubResource("PlaceholderTexture2D_ui11n")
+
+[connection signal="pressed" from="StartNextWaveButton" to="." method="_on_start_next_wave_button_pressed"]

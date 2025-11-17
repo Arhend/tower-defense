@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://5qpus177p1k8"]
+[gd_scene load_steps=29 format=4 uid="uid://5qpus177p1k8"]
 
 [ext_resource type="Script" uid="uid://djguggas7vstx" path="res://Scenes/Levels/base_level.gd" id="1_s0vl6"]
 [ext_resource type="Script" uid="uid://bpfeyhcmsaa4p" path="res://Scenes/Levels/enemy_pooling_service.gd" id="1_ssatm"]
@@ -8,9 +8,15 @@
 [ext_resource type="Script" uid="uid://djxb7qbvtcs1k" path="res://Scenes/Levels/life_management_service.gd" id="6_iemmg"]
 [ext_resource type="Script" uid="uid://p68j6fld5d4b" path="res://Scenes/Levels/tower_purchase_service.gd" id="7_xghcx"]
 [ext_resource type="Script" uid="uid://djp760hnpubd0" path="res://Scenes/Levels/wave_service.gd" id="8_xghcx"]
+[ext_resource type="Script" uid="uid://btsrsskoiduuy" path="res://Resources/Waves/wave_data.gd" id="9_7ik2y"]
 [ext_resource type="Script" uid="uid://df3ab1bopu4qu" path="res://Scenes/Levels/gold_service.gd" id="9_71eip"]
 [ext_resource type="PackedScene" uid="uid://d0n8nrvk3quix" path="res://Scenes/Ui/GoldUi/gold_ui.tscn" id="9_hr04v"]
+[ext_resource type="Resource" uid="uid://dertkcofwm6qg" path="res://Resources/Waves/Easy/wave1.tres" id="10_3o7cg"]
+[ext_resource type="Resource" uid="uid://ksef6v8srrlc" path="res://Resources/Waves/Easy/wave2.tres" id="11_2a4j4"]
 [ext_resource type="PackedScene" uid="uid://ugyo6rgb04y0" path="res://Scenes/Ui/LivesUi/lives_ui.tscn" id="11_34r03"]
+[ext_resource type="Resource" uid="uid://iphka30754xf" path="res://Resources/Waves/Easy/wave3.tres" id="12_a8n0m"]
+[ext_resource type="PackedScene" uid="uid://b3iglwy70nwwi" path="res://Scenes/Ui/StartNextWaveUi/start_next_wave_ui.tscn" id="14_3o7cg"]
+[ext_resource type="PackedScene" uid="uid://cye5asjn6xx0n" path="res://Scenes/Ui/CurrentWaveUi/current_wave_ui.tscn" id="16_bi03b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xghcx"]
 texture = ExtResource("4_lai3q")
@@ -135,21 +141,10 @@ shape = SubResource("RectangleShape2D_xghcx")
 
 [node name="WaveService" type="Node2D" parent="Services"]
 script = ExtResource("8_xghcx")
-waves = [{
-"count": 5,
-"delay": 2.0,
-"type": 0
-}, {
-"count": 15,
-"delay": 0.4,
-"type": 0
-}, {
-"count": 8,
-"delay": 0.5,
-"type": 1
-}]
+wave_data = Array[ExtResource("9_7ik2y")]([ExtResource("10_3o7cg"), ExtResource("11_2a4j4"), ExtResource("12_a8n0m")])
 
 [node name="SpawnTimer" type="Timer" parent="Services/WaveService"]
+one_shot = true
 
 [node name="WaveTimer" type="Timer" parent="Services/WaveService"]
 
@@ -185,16 +180,27 @@ texture_normal = SubResource("PlaceholderTexture2D_3b8rg")
 texture_pressed = SubResource("PlaceholderTexture2D_xghcx")
 
 [node name="GoldUi" parent="LevelUI" instance=ExtResource("9_hr04v")]
-offset_left = 14.0
-offset_top = 9.0
-offset_right = 212.0
-offset_bottom = 48.0
+offset_left = 10.0
+offset_right = 208.0
+offset_bottom = 39.0
 
 [node name="LivesUi" parent="LevelUI" instance=ExtResource("11_34r03")]
-offset_left = 14.0
-offset_top = 61.0
-offset_right = 110.0
-offset_bottom = 101.0
+offset_left = 10.0
+offset_top = 50.0
+offset_right = 106.0
+offset_bottom = 90.0
+
+[node name="StartNextWaveUi" parent="LevelUI" instance=ExtResource("14_3o7cg")]
+offset_left = 10.0
+offset_top = 100.0
+offset_right = 180.0
+offset_bottom = 140.0
+
+[node name="CurrentWaveUi" parent="LevelUI" instance=ExtResource("16_bi03b")]
+offset_left = 10.0
+offset_top = 150.0
+offset_right = -972.0
+offset_bottom = -458.0
 
 [connection signal="timeout" from="Services/DebugService/ActivateEnemyTimer" to="Services/DebugService" method="_on_activate_enemy_timer_timeout"]
 [connection signal="area_entered" from="Services/TowerPurchaseService/SelectedTowerArea" to="Services/TowerPurchaseService" method="_on_selected_tower_area_area_entered"]
