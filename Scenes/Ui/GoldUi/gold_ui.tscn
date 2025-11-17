@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://d0n8nrvk3quix"]
 
-[ext_resource type="Script" uid="uid://cykm62fkkato0" path="res://Scenes/Ui/Gold/gold_ui.gd" id="1_y28hg"]
+[ext_resource type="Script" uid="uid://cykm62fkkato0" path="res://Scenes/Ui/GoldUi/gold_ui.gd" id="1_y28hg"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3j27b"]
 size = Vector2(32, 32)
@@ -17,14 +17,11 @@ script = ExtResource("1_y28hg")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 14
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -66.0
 offset_top = -17.0
-offset_right = 66.0
 offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2

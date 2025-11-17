@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://ugyo6rgb04y0"]
+
+[ext_resource type="Script" uid="uid://bxhsiw6xsnq8h" path="res://Scenes/Ui/LivesUi/lives_ui.gd" id="1_bxmpq"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_acctf"]
+size = Vector2(32, 32)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bxmpq"]
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[node name="LivesUi" type="ColorRect"]
+offset_right = 96.0
+offset_bottom = 40.0
+color = Color(1, 1, 1, 0)
+script = ExtResource("1_bxmpq")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -17.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="LivesIcon" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_acctf")
+
+[node name="LivesLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "100"
+label_settings = SubResource("LabelSettings_bxmpq")
+vertical_alignment = 1

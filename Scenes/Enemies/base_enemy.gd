@@ -39,7 +39,7 @@ func _physics_process(delta):
 
     if navigation_agent_2d.is_navigation_finished():
         deactivate()
-        SignalManager.on_enemy_reached_exit.emit()
+        SignalManager.on_enemy_reached_exit.emit(self)
         return
 
     var next_position = navigation_agent_2d.get_next_path_position()

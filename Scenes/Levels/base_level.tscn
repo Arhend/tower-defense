@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://5qpus177p1k8"]
+[gd_scene load_steps=23 format=4 uid="uid://5qpus177p1k8"]
 
 [ext_resource type="Script" uid="uid://djguggas7vstx" path="res://Scenes/Levels/base_level.gd" id="1_s0vl6"]
 [ext_resource type="Script" uid="uid://bpfeyhcmsaa4p" path="res://Scenes/Levels/enemy_pooling_service.gd" id="1_ssatm"]
@@ -9,7 +9,8 @@
 [ext_resource type="Script" uid="uid://p68j6fld5d4b" path="res://Scenes/Levels/tower_purchase_service.gd" id="7_xghcx"]
 [ext_resource type="Script" uid="uid://djp760hnpubd0" path="res://Scenes/Levels/wave_service.gd" id="8_xghcx"]
 [ext_resource type="Script" uid="uid://df3ab1bopu4qu" path="res://Scenes/Levels/gold_service.gd" id="9_71eip"]
-[ext_resource type="PackedScene" uid="uid://d0n8nrvk3quix" path="res://Scenes/Ui/Gold/gold_ui.tscn" id="9_hr04v"]
+[ext_resource type="PackedScene" uid="uid://d0n8nrvk3quix" path="res://Scenes/Ui/GoldUi/gold_ui.tscn" id="9_hr04v"]
+[ext_resource type="PackedScene" uid="uid://ugyo6rgb04y0" path="res://Scenes/Ui/LivesUi/lives_ui.tscn" id="11_34r03"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xghcx"]
 texture = ExtResource("4_lai3q")
@@ -159,14 +160,6 @@ gold = 150
 
 [node name="LevelUI" type="CanvasLayer" parent="."]
 
-[node name="LifeCount" type="Label" parent="LevelUI"]
-visible = false
-offset_left = 22.0
-offset_top = 16.0
-offset_right = 50.0
-offset_bottom = 39.0
-text = "000"
-
 [node name="Towers" type="VBoxContainer" parent="LevelUI"]
 custom_minimum_size = Vector2(128, 0)
 anchors_preset = 11
@@ -192,7 +185,16 @@ texture_normal = SubResource("PlaceholderTexture2D_3b8rg")
 texture_pressed = SubResource("PlaceholderTexture2D_xghcx")
 
 [node name="GoldUi" parent="LevelUI" instance=ExtResource("9_hr04v")]
-offset_right = 198.0
+offset_left = 14.0
+offset_top = 9.0
+offset_right = 212.0
+offset_bottom = 48.0
+
+[node name="LivesUi" parent="LevelUI" instance=ExtResource("11_34r03")]
+offset_left = 14.0
+offset_top = 61.0
+offset_right = 110.0
+offset_bottom = 101.0
 
 [connection signal="timeout" from="Services/DebugService/ActivateEnemyTimer" to="Services/DebugService" method="_on_activate_enemy_timer_timeout"]
 [connection signal="area_entered" from="Services/TowerPurchaseService/SelectedTowerArea" to="Services/TowerPurchaseService" method="_on_selected_tower_area_area_entered"]

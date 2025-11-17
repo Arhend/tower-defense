@@ -3,4 +3,5 @@
 [ext_resource type="PackedScene" uid="uid://cfwbn1expd5ho" path="res://Scenes/Towers/base_tower.tscn" id="1_qptkl"]
 
 [node name="BrushTower" instance=ExtResource("1_qptkl")]
+attack_speed = 2.0
 cost = 50
