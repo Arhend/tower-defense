@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="WaveData" load_steps=6 format=3 uid="uid://dyysjf1wdb4bn"]
+
+[ext_resource type="Script" uid="uid://cp8aomedx0xgs" path="res://Resources/EnemySpawnData/enemy_spawn_data.gd" id="1_f3tds"]
+[ext_resource type="Resource" uid="uid://cixh11435sc43" path="res://Resources/EnemySpawnData/Driplet/driplet_0s_delay.tres" id="2_akpgc"]
+[ext_resource type="Resource" uid="uid://w00spvjy6ykn" path="res://Resources/EnemySpawnData/Driplet/driplet_3s_delay.tres" id="3_3pxph"]
+[ext_resource type="Resource" uid="uid://d4lufyliwghoc" path="res://Resources/EnemySpawnData/Gloplet/gloplet_3s_delay.tres" id="4_f3tds"]
+[ext_resource type="Script" uid="uid://btsrsskoiduuy" path="res://Resources/Waves/wave_data.gd" id="5_tbtd5"]
+
+[resource]
+script = ExtResource("5_tbtd5")
+enemy_spawn_data = Array[ExtResource("1_f3tds")]([ExtResource("2_akpgc"), ExtResource("3_3pxph"), ExtResource("3_3pxph"), ExtResource("3_3pxph"), ExtResource("3_3pxph"), ExtResource("4_f3tds"), ExtResource("4_f3tds"), ExtResource("4_f3tds"), ExtResource("4_f3tds"), ExtResource("4_f3tds")])
+metadata/_custom_type_script = "uid://btsrsskoiduuy"

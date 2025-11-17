@@ -11,10 +11,10 @@
 [ext_resource type="Script" uid="uid://btsrsskoiduuy" path="res://Resources/Waves/wave_data.gd" id="9_7ik2y"]
 [ext_resource type="Script" uid="uid://df3ab1bopu4qu" path="res://Scenes/Levels/gold_service.gd" id="9_71eip"]
 [ext_resource type="PackedScene" uid="uid://d0n8nrvk3quix" path="res://Scenes/Ui/GoldUi/gold_ui.tscn" id="9_hr04v"]
-[ext_resource type="Resource" uid="uid://dertkcofwm6qg" path="res://Resources/Waves/Easy/wave1.tres" id="10_3o7cg"]
 [ext_resource type="Resource" uid="uid://ksef6v8srrlc" path="res://Resources/Waves/Easy/wave2.tres" id="11_2a4j4"]
 [ext_resource type="PackedScene" uid="uid://ugyo6rgb04y0" path="res://Scenes/Ui/LivesUi/lives_ui.tscn" id="11_34r03"]
 [ext_resource type="Resource" uid="uid://iphka30754xf" path="res://Resources/Waves/Easy/wave3.tres" id="12_a8n0m"]
+[ext_resource type="Resource" uid="uid://dyysjf1wdb4bn" path="res://Resources/Waves/Easy/wave4.tres" id="13_txu3m"]
 [ext_resource type="PackedScene" uid="uid://b3iglwy70nwwi" path="res://Scenes/Ui/StartNextWaveUi/start_next_wave_ui.tscn" id="14_3o7cg"]
 [ext_resource type="PackedScene" uid="uid://cye5asjn6xx0n" path="res://Scenes/Ui/CurrentWaveUi/current_wave_ui.tscn" id="16_bi03b"]
 
@@ -141,7 +141,7 @@ shape = SubResource("RectangleShape2D_xghcx")
 
 [node name="WaveService" type="Node2D" parent="Services"]
 script = ExtResource("8_xghcx")
-wave_data = Array[ExtResource("9_7ik2y")]([ExtResource("10_3o7cg"), ExtResource("11_2a4j4"), ExtResource("12_a8n0m")])
+wave_data = Array[ExtResource("9_7ik2y")]([ExtResource("13_txu3m"), ExtResource("11_2a4j4"), ExtResource("12_a8n0m"), ExtResource("13_txu3m")])
 
 [node name="SpawnTimer" type="Timer" parent="Services/WaveService"]
 one_shot = true
