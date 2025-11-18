@@ -23,7 +23,7 @@ func try_attack():
     if can_attack and enemies_in_range.size() > 0:
         fire_once()
         can_attack = false
-        attack_timer.start()   # start cooldown
+        attack_timer.start() # start cooldown
 
 func fire_once():
     var target = enemies_in_range[0]
@@ -55,3 +55,7 @@ func _on_attack_timer_timeout():
 
     # If enemy is still here, attack immediately
     try_attack()
+    
+func _on_input_event(viewport, event, shape_idx):
+    if event.is_action_pressed("primary"):
+        SignalManager.on_tower_clicked.emit(self)

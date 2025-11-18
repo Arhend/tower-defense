@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://5qpus177p1k8"]
+[gd_scene load_steps=41 format=4 uid="uid://5qpus177p1k8"]
 
 [ext_resource type="Script" uid="uid://djguggas7vstx" path="res://Scenes/Levels/base_level.gd" id="1_s0vl6"]
 [ext_resource type="Script" uid="uid://bpfeyhcmsaa4p" path="res://Scenes/Levels/enemy_pooling_service.gd" id="1_ssatm"]
@@ -22,11 +22,12 @@
 [ext_resource type="Resource" uid="uid://ba65o3oofgxu7" path="res://Resources/Waves/Easy/wave6.tres" id="15_1mc0y"]
 [ext_resource type="Script" uid="uid://dsnxdxghr3c2b" path="res://Scenes/Levels/fast_forward_service.gd" id="15_5xk34"]
 [ext_resource type="PackedScene" uid="uid://cye5asjn6xx0n" path="res://Scenes/Ui/CurrentWaveUi/current_wave_ui.tscn" id="16_bi03b"]
-[ext_resource type="Resource" path="res://Resources/Waves/Easy/wave7.tres" id="16_vk7aq"]
-[ext_resource type="Resource" path="res://Resources/Waves/Easy/wave8.tres" id="17_g66x3"]
-[ext_resource type="Resource" path="res://Resources/Waves/Easy/wave9.tres" id="18_nwww2"]
+[ext_resource type="Resource" uid="uid://fac41tv71yb4" path="res://Resources/Waves/Easy/wave7.tres" id="16_vk7aq"]
+[ext_resource type="Resource" uid="uid://c4m8n2p6ras3u" path="res://Resources/Waves/Easy/wave8.tres" id="17_g66x3"]
+[ext_resource type="Resource" uid="uid://b5oap4r7s2t6w" path="res://Resources/Waves/Easy/wave9.tres" id="18_nwww2"]
 [ext_resource type="Resource" uid="uid://br6d2gpe3goif" path="res://Resources/Waves/Easy/wave10.tres" id="19_5mlh2"]
 [ext_resource type="PackedScene" uid="uid://8b0l5glc75b2" path="res://Scenes/Ui/FastForwardUi/fast_forward_ui.tscn" id="19_xat8b"]
+[ext_resource type="PackedScene" uid="uid://d1y0a6twnag5x" path="res://Scenes/Ui/TowerDetailUi/tower_detail_ui.tscn" id="28_vk7aq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xghcx"]
 texture = ExtResource("4_lai3q")
@@ -233,6 +234,8 @@ offset_left = 10.0
 offset_top = 200.0
 offset_right = 180.0
 offset_bottom = 240.0
+
+[node name="TowerDetailUi" parent="LevelUI" instance=ExtResource("28_vk7aq")]
 
 [connection signal="timeout" from="Services/DebugService/ActivateEnemyTimer" to="Services/DebugService" method="_on_activate_enemy_timer_timeout"]
 [connection signal="area_entered" from="Services/TowerPurchaseService/SelectedTowerArea" to="Services/TowerPurchaseService" method="_on_selected_tower_area_area_entered"]
