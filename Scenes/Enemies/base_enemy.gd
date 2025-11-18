@@ -7,18 +7,29 @@ const OFF_SCREEN_POSITION: Vector2 = Vector2(-10000, -10000)
 var in_use := false
 var start_position: Vector2 = Vector2.ZERO
 var exit_position: Vector2 = Vector2.ZERO
+var starting_health := 3
 
 @export var speed: float = 50.0
 @export var health: int = 3
 @export var gold_on_death: int = 1
+
 @onready var navigation_agent_2d := $NavigationAgent2D
+@onready var debug_label = $DebugLabel
+
+func _ready():
+    starting_health = health
+    
+func update_debug_label():
+    debug_label.text = "Health: %s\nSpeed: %s" % [health, speed]
 
 func activate():
     visible = true
     set_physics_process(true)
     in_use = true
     navigation_agent_2d.target_position = exit_position
-
+    health = starting_health
+    update_debug_label()
+    
 func deactivate():
     visible = false
     set_physics_process(false)
@@ -28,6 +39,7 @@ func deactivate():
 
 func take_damage(damage: int):
     health -= damage
+    update_debug_label()
     
     if health <= 0:
         deactivate()

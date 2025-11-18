@@ -6,7 +6,7 @@ class_name BaseTower
 @export var attack_speed: float = 3.0
 @export var projectile: PackedScene
 @export var cost: int = 10
-
+    
 @onready var collision_shape_2d = $AttackRange/CollisionShape2D
 @onready var attack_timer = $AttackTimer
 
