@@ -8,7 +8,7 @@ env:
 
 jobs:
   export:
-    name: Export Game
+    name: Export Game for Windows
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
@@ -22,28 +22,34 @@ jobs:
           mkdir -p build/windows
           docker run --rm -v "$(pwd):/workspace" godot-builder \
             godot --headless --verbose --export-release "Windows Desktop" "/workspace/build/windows/$EXPORT_NAME.exe"
-      # - name: Export Linux
-      #   run: |
-      #     mkdir -p build/linux
-      #     docker run --rm -v "$(pwd):/workspace" godot-builder \
-      #       godot --headless --verbose --export-release "Linux/X11" "/workspace/build/linux/$EXPORT_NAME.x86_64"
-      # - name: Export macOS
-      #   run: |
-      #     mkdir -p build/mac
-      #     docker run --rm -v "$(pwd):/workspace" godot-builder \
-      #       godot --headless --verbose --export-release "macOS" "/workspace/build/mac/$EXPORT_NAME.zip"
       - name: Upload Windows
         uses: actions/upload-artifact@v4
         with:
           name: windows
           path: build/windows
-      # - name: Upload Linux
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: linux
-      #     path: build/linux
-      # - name: Upload macOS
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: mac
-      #     path: build/mac
+
+  export-web:
+    name: Export Game for Web
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+      - name: Build Docker Image
+        run: docker build -t godot-builder .
+      - name: Export Web
+        run: |
+          mkdir -p build/web
+          docker run --rm -v "$(pwd):/workspace" godot-builder \
+            godot --headless --verbose --export-release "Web" "/workspace/build/web/index.html"
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/web
+          force_orphan: true
+ 
