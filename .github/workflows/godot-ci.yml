@@ -22,28 +22,28 @@ jobs:
           mkdir -p build/windows
           docker run --rm -v "$(pwd):/workspace" godot-builder \
             godot --headless --verbose --export-release "Windows Desktop" "/workspace/build/windows/$EXPORT_NAME.exe"
-      - name: Export Linux
-        run: |
-          mkdir -p build/linux
-          docker run --rm -v "$(pwd):/workspace" godot-builder \
-            godot --headless --verbose --export-release "Linux/X11" "/workspace/build/linux/$EXPORT_NAME.x86_64"
-      - name: Export macOS
-        run: |
-          mkdir -p build/mac
-          docker run --rm -v "$(pwd):/workspace" godot-builder \
-            godot --headless --verbose --export-release "macOS" "/workspace/build/mac/$EXPORT_NAME.zip"
+      # - name: Export Linux
+      #   run: |
+      #     mkdir -p build/linux
+      #     docker run --rm -v "$(pwd):/workspace" godot-builder \
+      #       godot --headless --verbose --export-release "Linux/X11" "/workspace/build/linux/$EXPORT_NAME.x86_64"
+      # - name: Export macOS
+      #   run: |
+      #     mkdir -p build/mac
+      #     docker run --rm -v "$(pwd):/workspace" godot-builder \
+      #       godot --headless --verbose --export-release "macOS" "/workspace/build/mac/$EXPORT_NAME.zip"
       - name: Upload Windows
         uses: actions/upload-artifact@v4
         with:
           name: windows
           path: build/windows
-      - name: Upload Linux
-        uses: actions/upload-artifact@v4
-        with:
-          name: linux
-          path: build/linux
-      - name: Upload macOS
-        uses: actions/upload-artifact@v4
-        with:
-          name: mac
-          path: build/mac
+      # - name: Upload Linux
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: linux
+      #     path: build/linux
+      # - name: Upload macOS
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: mac
+      #     path: build/mac
