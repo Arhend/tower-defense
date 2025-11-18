@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WaveData" load_steps=7 format=3 uid="uid://br6d2gpe3goif"]
+
+[ext_resource type="Script" uid="uid://cp8aomedx0xgs" path="res://Resources/EnemySpawnData/enemy_spawn_data.gd" id="1_w10e10"]
+[ext_resource type="Resource" uid="uid://cixh11435sc43" path="res://Resources/EnemySpawnData/Driplet/driplet_0s_delay.tres" id="2_w10e10"]
+[ext_resource type="Resource" uid="uid://doayic5nr0pmg" path="res://Resources/EnemySpawnData/Gloplet/gloplet_0s_delay.tres" id="3_w10e10"]
+[ext_resource type="Resource" uid="uid://1a4omghrc6u5" path="res://Resources/EnemySpawnData/Gloplet/gloplet_1s_delay.tres" id="4_w10e10"]
+[ext_resource type="Resource" uid="uid://bqk4h8v5n7m2p" path="res://Resources/EnemySpawnData/Smearling/smearling_0s_delay.tres" id="5_w10e10"]
+[ext_resource type="Script" uid="uid://btsrsskoiduuy" path="res://Resources/Waves/wave_data.gd" id="6_w10e10"]
+
+[resource]
+script = ExtResource("6_w10e10")
+enemy_spawn_data = Array[ExtResource("1_w10e10")]([ExtResource("2_w10e10"), ExtResource("3_w10e10"), ExtResource("3_w10e10"), ExtResource("3_w10e10"), ExtResource("3_w10e10"), ExtResource("3_w10e10"), ExtResource("3_w10e10"), ExtResource("3_w10e10"), ExtResource("3_w10e10"), ExtResource("3_w10e10"), ExtResource("3_w10e10"), ExtResource("3_w10e10"), ExtResource("3_w10e10"), ExtResource("4_w10e10"), ExtResource("4_w10e10"), ExtResource("4_w10e10"), ExtResource("4_w10e10"), ExtResource("4_w10e10"), ExtResource("4_w10e10"), ExtResource("4_w10e10"), ExtResource("4_w10e10"), ExtResource("4_w10e10"), ExtResource("4_w10e10"), ExtResource("4_w10e10"), ExtResource("4_w10e10"), ExtResource("5_w10e10"), ExtResource("5_w10e10"), ExtResource("5_w10e10"), ExtResource("5_w10e10"), ExtResource("5_w10e10"), ExtResource("5_w10e10"), ExtResource("5_w10e10"), ExtResource("5_w10e10"), ExtResource("5_w10e10"), ExtResource("5_w10e10"), ExtResource("5_w10e10"), ExtResource("5_w10e10"), ExtResource("5_w10e10"), ExtResource("5_w10e10"), ExtResource("5_w10e10")])
+metadata/_custom_type_script = "uid://btsrsskoiduuy"

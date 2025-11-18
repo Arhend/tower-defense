@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo7bji3b3i0j6"]
+
+[ext_resource type="PackedScene" uid="uid://c6hijlinaypil" path="res://Scenes/Towers/Projectiles/base_projectile.tscn" id="1_k3ade"]
+[ext_resource type="Script" uid="uid://bxoeca6krswne" path="res://Scenes/Towers/Projectiles/BrushProjectile/brush_projectile.gd" id="2_ncx6q"]
+
+[node name="BrushProjectile" instance=ExtResource("1_k3ade")]
+script = ExtResource("2_ncx6q")

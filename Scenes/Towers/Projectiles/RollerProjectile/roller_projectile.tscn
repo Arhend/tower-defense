@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dihskt62w65r8"]
+
+[ext_resource type="PackedScene" uid="uid://c6hijlinaypil" path="res://Scenes/Towers/Projectiles/base_projectile.tscn" id="1_g3m72"]
+[ext_resource type="Script" uid="uid://behrj7rmuofsw" path="res://Scenes/Towers/Projectiles/RollerProjectile/roller_projectile.gd" id="2_qcx1l"]
+
+[node name="RollerProjectile" instance=ExtResource("1_g3m72")]
+script = ExtResource("2_qcx1l")
+max_hits = 5
+speed = 150
+damage = 5
+
+[node name="DeleteTimer" parent="." index="2"]
+wait_time = 1.5

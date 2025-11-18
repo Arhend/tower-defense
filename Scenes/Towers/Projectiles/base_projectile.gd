@@ -2,8 +2,8 @@ extends Area2D
 
 class_name BaseProjectile
 
-var speed: int = 300
-var damage: int = 1
+@export var speed: int = 300
+@export var damage: int = 1
 
 # Variable to not accidentally trigger
 # multiple enemies to be hit by the projectile if 
