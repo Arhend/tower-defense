@@ -58,4 +58,7 @@ func _on_attack_timer_timeout():
     
 func _on_input_event(viewport, event, shape_idx):
     if event.is_action_pressed("primary"):
+        if has_meta(TowerPurchaseService.JUST_PLACED):
+            remove_meta(TowerPurchaseService.JUST_PLACED)
+            return
         SignalManager.on_tower_clicked.emit(self)

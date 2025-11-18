@@ -19,6 +19,5 @@ func _on_tower_clicked(clicked_tower: BaseTower):
     tower = clicked_tower
     show()
 
-
 func _on_hide_details_button_pressed():
     hide_details()
