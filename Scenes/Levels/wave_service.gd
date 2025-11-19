@@ -12,11 +12,13 @@ var current_wave := 0
 var spawn_queue: Array[EnemySpawnData] = []
 var spawn_index := 0
 var active_enemies := 0
+var auto_start_waves := false
 
 func _ready():
     SignalManager.on_enemy_deactivated.connect(_on_enemy_deactivated)
     SignalManager.on_start_next_wave.connect(_on_start_next_wave)
-
+    SignalManager.on_toggle_autostart_waves.connect(_on_toggle_autostart_waves)
+    
 func start_wave():
     LoggerManager.debug("Starting wave %d" % current_wave)
     
@@ -49,6 +51,9 @@ func wave_finished():
     # Wave is done let us go to next on user input
     start_next_wave_ui.enable_button()
 
+    if auto_start_waves:
+        start_wave()
+
 func _on_enemy_deactivated(_enemy: BaseEnemy):
     active_enemies -= 1
 
@@ -68,3 +73,6 @@ func _on_start_next_wave():
         return
         
     start_wave()
+
+func _on_toggle_autostart_waves():
+    auto_start_waves = !auto_start_waves

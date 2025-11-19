@@ -4,6 +4,5 @@
 [ext_resource type="PackedScene" uid="uid://bo7bji3b3i0j6" path="res://Scenes/Towers/Projectiles/BrushProjectile/brush_projectile.tscn" id="2_s2pvc"]
 
 [node name="BrushTower" instance=ExtResource("1_qptkl")]
-attack_speed = 2.0
 projectile = ExtResource("2_s2pvc")
 cost = 50

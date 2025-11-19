@@ -26,6 +26,7 @@ path_max_distance = 10.0
 path_postprocessing = 1
 
 [node name="DebugLabel" type="Label" parent="."]
+visible = false
 offset_left = -18.0
 offset_top = 2.0
 offset_right = 21.0
