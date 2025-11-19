@@ -35,5 +35,10 @@ text = "Sell"
 layout_mode = 2
 text = "Hide Details"
 
+[node name="TogglePriorityButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "FIRST"
+
 [connection signal="pressed" from="VBoxContainer/SellButton" to="." method="_on_sell_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HideDetailsButton" to="." method="_on_hide_details_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/TogglePriorityButton" to="." method="_on_toggle_priority_button_pressed"]

@@ -2,6 +2,11 @@ extends Area2D
 
 class_name BaseTower
 
+enum TargetPriorities {
+    LAST, 
+    FIRST
+}
+
 @export var attack_range: float = 100.0
 @export var attack_speed: float = 3.0
 @export var projectile: PackedScene
@@ -12,6 +17,7 @@ class_name BaseTower
 
 var enemies_in_range: Array[BaseEnemy]
 var can_attack := true
+var targeting_priority: TargetPriorities = TargetPriorities.FIRST
 
 func _ready():
     collision_shape_2d.shape.radius = attack_range
@@ -27,6 +33,11 @@ func try_attack():
 
 func fire_once():
     var target = enemies_in_range[0]
+    if targeting_priority == TargetPriorities.FIRST:
+        target = enemies_in_range[0]
+    elif targeting_priority == TargetPriorities.LAST:
+        target = enemies_in_range[enemies_in_range.size() - 1]
+    
     if target and target.in_use:
         spawn_projectile(target)
 
@@ -38,6 +49,10 @@ func spawn_projectile(target: BaseEnemy):
         proj.look_at(target.global_position)
         get_tree().root.call_deferred("add_child", proj)
         
+func toggle_priority() -> TargetPriorities:
+    targeting_priority = (targeting_priority + 1) % TargetPriorities.size()
+    return targeting_priority
+    
 func _on_attack_range_area_entered(area):
     if area.is_in_group("enemy") and area.in_use:
         enemies_in_range.append(area)
