@@ -7,23 +7,30 @@ enum TargetPriorities {
     FIRST
 }
 
-@export var attack_range: float = 100.0
-@export var attack_speed: float = 3.0
+@export var tower_stats: TowerStats 
+
 @export var projectile: PackedScene
+@export var projectile_stats: ProjectileStats
+
 @export var cost: int = 10
-    
+
 @onready var collision_shape_2d = $AttackRange/CollisionShape2D
 @onready var attack_timer = $AttackTimer
 
 var enemies_in_range: Array[BaseEnemy]
 var can_attack := true
-var targeting_priority: TargetPriorities = TargetPriorities.FIRST
+var targeting_priority: TargetPriorities = TargetPriorities.FIRST 
 
 func _ready():
-    collision_shape_2d.shape.radius = attack_range
+    collision_shape_2d.shape.radius = tower_stats.attack_range
     SignalManager.on_enemy_deactivated.connect(_on_enemy_deactivated)
-    attack_timer.wait_time = attack_speed
-
+    attack_timer.wait_time = tower_stats.attack_speed
+    
+    if projectile_stats == null:
+        push_error("Projectile Stats not set for tower")
+    if tower_stats == null:
+        push_error("Tower Stats not set for tower")
+        
 func try_attack():
     # Only attack if cooldown ready AND we have a target
     if can_attack and enemies_in_range.size() > 0:
@@ -47,6 +54,8 @@ func spawn_projectile(target: BaseEnemy):
         proj.name = "Projectile_%s" % UuidManager.v4()
         proj.global_position = global_position
         proj.look_at(target.global_position)
+        
+        proj.set_projectile_stats(projectile_stats)
         get_tree().root.call_deferred("add_child", proj)
         
 func toggle_priority() -> TargetPriorities:

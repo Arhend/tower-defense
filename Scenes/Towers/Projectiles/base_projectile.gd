@@ -3,7 +3,10 @@ extends Area2D
 class_name BaseProjectile
 
 @export var speed: int = 300
-@export var damage: int = 1
+
+var projectile_pierce_limit: int = 5
+var hit_count: int = 0
+var damage: int = 1
 
 # Variable to not accidentally trigger
 # multiple enemies to be hit by the projectile if 
@@ -12,12 +15,18 @@ var has_hit := false
 
 func _physics_process(delta):
     position += transform.x * speed * delta
+    
+func set_projectile_stats(projectile_stats: ProjectileStats):
+    damage = projectile_stats.damage
+    projectile_pierce_limit = projectile_stats.pierce_limit
 
 func _on_area_entered(area):
-    if area.is_in_group("enemy") and not has_hit:
-        has_hit = true
+    if area.is_in_group("enemy") and hit_count < projectile_pierce_limit:
+        hit_count += 1
         area.take_damage(damage)
-        queue_free()
+
+        if hit_count >= projectile_pierce_limit:
+            queue_free()
         
 func _on_delete_timer_timeout():
     queue_free()

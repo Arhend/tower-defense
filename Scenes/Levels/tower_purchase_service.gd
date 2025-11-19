@@ -56,7 +56,7 @@ func has_enough_gold(tower_scene: PackedScene) -> bool:
 
 func get_attack_radius(tower_scene: PackedScene) -> int:
     var temp_tower = tower_scene.instantiate()
-    var tower_range = temp_tower.attack_range
+    var tower_range = temp_tower.tower_stats.attack_range
     temp_tower.queue_free()
 
     return tower_range

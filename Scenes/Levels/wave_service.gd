@@ -53,6 +53,7 @@ func wave_finished():
 
     if auto_start_waves:
         start_wave()
+        start_next_wave_ui.disable_button()
 
 func _on_enemy_deactivated(_enemy: BaseEnemy):
     active_enemies -= 1
