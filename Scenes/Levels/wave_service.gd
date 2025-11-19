@@ -2,11 +2,11 @@ extends Node2D
 
 @export var wave_data: Array[WaveData] = []
 
-@onready var start_next_wave_ui = $"../../LevelUI/StartNextWaveUi"
 @onready var enemy_pooling_service: EnemyPoolingService = $"../EnemyPoolingService"
 @onready var spawn_timer: Timer = $SpawnTimer
 @onready var wave_timer: Timer = $WaveTimer
-@onready var current_wave_ui = $"../../LevelUI/CurrentWaveUi"
+@onready var current_wave_ui = $"../../LevelUI/VBoxContainerUi/TopRowUi/DataHBox/CurrentWaveUi"
+@onready var start_next_wave_ui = $"../../LevelUI/VBoxContainerUi/TopRowUi/ControlHBox/StartNextWaveUi"
 
 var current_wave := 0
 var spawn_queue: Array[EnemySpawnData] = []

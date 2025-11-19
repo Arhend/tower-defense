@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cy65vcjf4uq7w" path="res://Scenes/Ui/CurrentWaveUi/current_wave_ui.gd" id="1_ugmcp"]
 
 [node name="CurrentWaveUi" type="ColorRect"]
+custom_minimum_size = Vector2(170, 32)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -14,9 +15,16 @@ color = Color(1, 1, 1, 0)
 script = ExtResource("1_ugmcp")
 
 [node name="CurrentWaveLabel" type="Label" parent="."]
-layout_mode = 0
-offset_top = 8.0
-offset_right = 1.0
-offset_bottom = 31.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -11.5
+offset_right = 5.0
+offset_bottom = 11.5
+grow_horizontal = 2
 grow_vertical = 2
 text = "1"

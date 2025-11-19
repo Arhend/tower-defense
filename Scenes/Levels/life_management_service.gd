@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var lives: int = 100
-@onready var lives_ui = $"../../LevelUI/LivesUi"
+@onready var lives_ui = $"../../LevelUI/VBoxContainerUi/TopRowUi/DataHBox/LivesUi"
 
 func _ready():
     # Wait to ensure lives ui is ready

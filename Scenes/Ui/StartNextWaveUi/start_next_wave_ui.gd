@@ -1,6 +1,6 @@
 extends ColorRect
 
-@onready var start_next_wave_button = $StartNextWaveButton
+@onready var start_next_wave_button = $HBoxContainer/StartNextWaveButton
 
 var is_disabled := false
 

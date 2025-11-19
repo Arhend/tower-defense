@@ -2,7 +2,8 @@ extends Node2D
 
 class_name GoldService
 
-@export var gold_ui: GoldUI
+@onready var gold_ui = $"../../LevelUI/VBoxContainerUi/TopRowUi/DataHBox/GoldUI"
+
 @export var gold := 0
 
 func _ready():
@@ -12,9 +13,6 @@ func _ready():
     # Wait to ensure gold ui is ready
     await get_tree().process_frame
     
-    if not gold_ui:
-        push_error("Missing Gold UI Element")
-        return
         
     gold_ui.set_ui_text(gold)
 

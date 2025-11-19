@@ -9,7 +9,7 @@ enum FastForwardSpeed {
 
 var fast_forward_state: FastForwardSpeed = FastForwardSpeed.SPEED_1X
 
-@onready var fast_forward_ui = $"../../LevelUI/FastForwardUi"
+@onready var fast_forward_ui = $"../../LevelUI/VBoxContainerUi/TopRowUi/ControlHBox/FastForwardUi"
 
 func _ready():
     SignalManager.on_toggle_fast_forward.connect(_on_toggle_fast_forward)

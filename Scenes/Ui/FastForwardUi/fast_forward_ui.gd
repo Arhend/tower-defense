@@ -1,6 +1,6 @@
 extends ColorRect
 
-@onready var debug_speed_label = $DebugSpeedLabel
+@onready var debug_speed_label = $HBoxContainer/DebugSpeedLabel
 
 func update_debug_label(value: String):
     debug_speed_label.text = value
