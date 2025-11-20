@@ -22,6 +22,11 @@ SignalManager="*res://Singletons/signal_manager.gd"
 UuidManager="*res://Singletons/uuid_manager.gd"
 LoggerManager="*res://Singletons/logger_manager.gd"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
 [global_group]
 
 enemy=""

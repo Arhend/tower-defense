@@ -258,7 +258,6 @@ texture_normal = SubResource("PlaceholderTexture2D_3b8rg")
 texture_pressed = SubResource("PlaceholderTexture2D_xghcx")
 
 [node name="TowerDetailUi" parent="LevelUI" instance=ExtResource("28_vk7aq")]
-theme = ExtResource("23_5mlh2")
 
 [node name="AutoStartWaveUi" parent="LevelUI" instance=ExtResource("29_g66x3")]
 offset_left = 10.0
