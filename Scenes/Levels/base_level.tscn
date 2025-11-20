@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://5qpus177p1k8"]
+[gd_scene load_steps=49 format=4 uid="uid://5qpus177p1k8"]
 
 [ext_resource type="Script" uid="uid://djguggas7vstx" path="res://Scenes/Levels/base_level.gd" id="1_s0vl6"]
 [ext_resource type="Script" uid="uid://bpfeyhcmsaa4p" path="res://Scenes/Levels/enemy_pooling_service.gd" id="1_ssatm"]
@@ -30,7 +30,10 @@
 [ext_resource type="Theme" uid="uid://duabvow4i86km" path="res://Resources/Themes/Base/base_theme.tres" id="23_5mlh2"]
 [ext_resource type="PackedScene" uid="uid://d1y0a6twnag5x" path="res://Scenes/Ui/TowerDetailUi/tower_detail_ui.tscn" id="28_vk7aq"]
 [ext_resource type="PackedScene" uid="uid://cvuc7ocfri66r" path="res://Scenes/Ui/AutoStartWaveUi/auto_start_wave_ui.tscn" id="29_g66x3"]
+[ext_resource type="PackedScene" uid="uid://6khrym5d48mq" path="res://Scenes/Ui/TowerPurchasePanelButtonUi/tower_purchase_button_ui.tscn" id="29_sthf1"]
 [ext_resource type="PackedScene" uid="uid://co3864jx8ld0a" path="res://Scenes/Ui/SettingsButtonUi/settings_button_ui.tscn" id="30_nwww2"]
+[ext_resource type="Texture2D" uid="uid://csfaw2blqjs8v" path="res://Assets/Dev/green16x16.png" id="30_pde7n"]
+[ext_resource type="Texture2D" uid="uid://bedqxe1pfye1v" path="res://Assets/Dev/purple16x16.png" id="31_uemjo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xghcx"]
 texture = ExtResource("4_lai3q")
@@ -87,12 +90,13 @@ sources/0 = SubResource("TileSetAtlasSource_lai3q")
 
 [sub_resource type="SphereMesh" id="SphereMesh_67sl2"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3b8rg"]
-size = Vector2(32, 32)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5mlh2"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xghcx"]
-resource_local_to_scene = true
-size = Vector2(32, 32)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sthf1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pde7n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uemjo"]
 
 [node name="BaseLevel" type="Node2D"]
 script = ExtResource("1_s0vl6")
@@ -179,6 +183,17 @@ script = ExtResource("15_5xk34")
 
 [node name="LevelUI" type="CanvasLayer" parent="."]
 
+[node name="CloseTowerDetailButton" type="Button" parent="LevelUI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5mlh2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_sthf1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_pde7n")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uemjo")
+
 [node name="VBoxContainerUi" type="VBoxContainer" parent="LevelUI"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -189,47 +204,56 @@ mouse_filter = 2
 theme = ExtResource("23_5mlh2")
 
 [node name="Spacer2" type="Control" parent="LevelUI/VBoxContainerUi"]
-custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 mouse_filter = 2
 
 [node name="TopRowUi" type="HBoxContainer" parent="LevelUI/VBoxContainerUi"]
 layout_mode = 2
 
-[node name="DataHBox" type="HBoxContainer" parent="LevelUI/VBoxContainerUi/TopRowUi"]
+[node name="PanelContainer" type="PanelContainer" parent="LevelUI/VBoxContainerUi/TopRowUi"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Spacer" type="Control" parent="LevelUI/VBoxContainerUi/TopRowUi/DataHBox"]
+[node name="DataHBox" type="HBoxContainer" parent="LevelUI/VBoxContainerUi/TopRowUi/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Spacer" type="Control" parent="LevelUI/VBoxContainerUi/TopRowUi/PanelContainer/DataHBox"]
 custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
 mouse_filter = 2
 
-[node name="LivesUi" parent="LevelUI/VBoxContainerUi/TopRowUi/DataHBox" instance=ExtResource("11_34r03")]
+[node name="LivesUi" parent="LevelUI/VBoxContainerUi/TopRowUi/PanelContainer/DataHBox" instance=ExtResource("11_34r03")]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="GoldUI" parent="LevelUI/VBoxContainerUi/TopRowUi/DataHBox" instance=ExtResource("9_hr04v")]
+[node name="GoldUI" parent="LevelUI/VBoxContainerUi/TopRowUi/PanelContainer/DataHBox" instance=ExtResource("9_hr04v")]
 layout_mode = 2
 size_flags_horizontal = 6
 
-[node name="CurrentWaveUi" parent="LevelUI/VBoxContainerUi/TopRowUi/DataHBox" instance=ExtResource("16_bi03b")]
+[node name="CurrentWaveUi" parent="LevelUI/VBoxContainerUi/TopRowUi/PanelContainer/DataHBox" instance=ExtResource("16_bi03b")]
 layout_mode = 2
 size_flags_horizontal = 10
 
-[node name="Spacer2" type="Control" parent="LevelUI/VBoxContainerUi/TopRowUi/DataHBox"]
+[node name="Spacer2" type="Control" parent="LevelUI/VBoxContainerUi/TopRowUi/PanelContainer/DataHBox"]
 custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
 mouse_filter = 2
 
-[node name="ControlHBox" type="HBoxContainer" parent="LevelUI/VBoxContainerUi/TopRowUi"]
-layout_mode = 2
-size_flags_horizontal = 8
-
-[node name="StartNextWaveUi" parent="LevelUI/VBoxContainerUi/TopRowUi/ControlHBox" instance=ExtResource("14_3o7cg")]
+[node name="PanelContainer2" type="PanelContainer" parent="LevelUI/VBoxContainerUi/TopRowUi"]
 layout_mode = 2
 
-[node name="FastForwardUi" parent="LevelUI/VBoxContainerUi/TopRowUi/ControlHBox" instance=ExtResource("19_xat8b")]
+[node name="ControlHBox" type="HBoxContainer" parent="LevelUI/VBoxContainerUi/TopRowUi/PanelContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="StartNextWaveUi" parent="LevelUI/VBoxContainerUi/TopRowUi/PanelContainer2/ControlHBox" instance=ExtResource("14_3o7cg")]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FastForwardUi" parent="LevelUI/VBoxContainerUi/TopRowUi/PanelContainer2/ControlHBox" instance=ExtResource("19_xat8b")]
+custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
 
 [node name="Spacer" type="Control" parent="LevelUI/VBoxContainerUi"]
@@ -247,17 +271,18 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 6
 
-[node name="BrushTowerButton" type="TextureButton" parent="LevelUI/VBoxContainerUi/TowerScrollContainerUi/VBoxContainer"]
+[node name="BrushTowerButton" parent="LevelUI/VBoxContainerUi/TowerScrollContainerUi/VBoxContainer" instance=ExtResource("29_sthf1")]
 layout_mode = 2
-texture_normal = SubResource("PlaceholderTexture2D_3b8rg")
-texture_pressed = SubResource("PlaceholderTexture2D_xghcx")
+tower_name = "Brush"
+texture = ExtResource("30_pde7n")
 
-[node name="RollerTowerButton" type="TextureButton" parent="LevelUI/VBoxContainerUi/TowerScrollContainerUi/VBoxContainer"]
+[node name="RollerTowerButton" parent="LevelUI/VBoxContainerUi/TowerScrollContainerUi/VBoxContainer" instance=ExtResource("29_sthf1")]
 layout_mode = 2
-texture_normal = SubResource("PlaceholderTexture2D_3b8rg")
-texture_pressed = SubResource("PlaceholderTexture2D_xghcx")
+tower_name = "Roller"
+texture = ExtResource("31_uemjo")
 
 [node name="TowerDetailUi" parent="LevelUI" instance=ExtResource("28_vk7aq")]
+visible = false
 
 [node name="AutoStartWaveUi" parent="LevelUI" instance=ExtResource("29_g66x3")]
 offset_left = 10.0
@@ -280,6 +305,7 @@ grow_vertical = 0
 [connection signal="body_exited" from="Services/TowerPurchaseService/SelectedTowerArea" to="Services/TowerPurchaseService" method="_on_selected_tower_area_body_exited"]
 [connection signal="timeout" from="Services/WaveService/SpawnTimer" to="Services/WaveService" method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="Services/WaveService/WaveTimer" to="Services/WaveService" method="_on_wave_timer_timeout"]
+[connection signal="pressed" from="LevelUI/CloseTowerDetailButton" to="LevelUI/TowerDetailUi" method="_on_close_tower_detail_button_pressed"]
 [connection signal="pressed" from="LevelUI/VBoxContainerUi/TowerScrollContainerUi/VBoxContainer/BrushTowerButton" to="Services/TowerPurchaseService" method="_on_brush_tower_button_pressed"]
 [connection signal="pressed" from="LevelUI/VBoxContainerUi/TowerScrollContainerUi/VBoxContainer/RollerTowerButton" to="Services/TowerPurchaseService" method="_on_roller_tower_button_pressed"]
 

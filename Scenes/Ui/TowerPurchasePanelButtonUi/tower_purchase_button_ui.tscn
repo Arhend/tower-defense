@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://6khrym5d48mq"]
+
+[ext_resource type="Script" uid="uid://uoslfwp0f4ow" path="res://Scenes/Ui/TowerPurchasePanelButtonUi/tower_purchase_button_ui.gd" id="1_va4u8"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_va4u8"]
+size = Vector2(16, 16)
+
+[node name="TowerPurchaseButtonUi" type="Button"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 64.0
+offset_bottom = 64.0
+script = ExtResource("1_va4u8")
+tower_name = "EMPTY"
+
+[node name="TowerTexture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_va4u8")
+
+[node name="TowerNameLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "123123"

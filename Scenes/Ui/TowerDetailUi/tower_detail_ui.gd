@@ -2,6 +2,7 @@ extends Panel
 
 @onready var toggle_priority_button = $Grid/ContentRows/TogglePriorityButton
 @onready var damage_count_label = $Grid/ContentRows/BottomContentRow/DamageCountLabel
+@onready var close_tower_detail_button = $"../CloseTowerDetailButton"
 
 var tower: BaseTower
 
@@ -13,7 +14,8 @@ func _ready():
 func hide_details():
     hide()
     tower = null
-
+    close_tower_detail_button.hide()
+    
 func update_priority_text():
     var priority_string = BaseTower.TargetPriorities.keys()[tower.targeting_priority]
     toggle_priority_button.text = priority_string.capitalize()
@@ -34,6 +36,7 @@ func _on_tower_clicked(clicked_tower: BaseTower):
     update_priority_text()
     update_damage_count_text()
     show()
+    close_tower_detail_button.show()
 
 func _on_hide_details_button_pressed():
     hide_details()
@@ -45,3 +48,6 @@ func _on_toggle_priority_button_pressed():
 func _on_tower_damage_dealt(registered_tower: BaseTower):
     if tower and registered_tower == tower:
         update_damage_count_text()
+
+func _on_close_tower_detail_button_pressed():
+    hide_details()

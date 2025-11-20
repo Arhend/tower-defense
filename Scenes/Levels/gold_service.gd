@@ -2,7 +2,7 @@ extends Node2D
 
 class_name GoldService
 
-@onready var gold_ui = $"../../LevelUI/VBoxContainerUi/TopRowUi/DataHBox/GoldUI"
+@onready var gold_ui = $"../../LevelUI/VBoxContainerUi/TopRowUi/PanelContainer/DataHBox/GoldUI"
 
 @export var gold := 0
 

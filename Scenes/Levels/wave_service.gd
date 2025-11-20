@@ -5,8 +5,8 @@ extends Node2D
 @onready var enemy_pooling_service: EnemyPoolingService = $"../EnemyPoolingService"
 @onready var spawn_timer: Timer = $SpawnTimer
 @onready var wave_timer: Timer = $WaveTimer
-@onready var current_wave_ui = $"../../LevelUI/VBoxContainerUi/TopRowUi/DataHBox/CurrentWaveUi"
-@onready var start_next_wave_ui = $"../../LevelUI/VBoxContainerUi/TopRowUi/ControlHBox/StartNextWaveUi"
+@onready var current_wave_ui = $"../../LevelUI/VBoxContainerUi/TopRowUi/PanelContainer/DataHBox/CurrentWaveUi"
+@onready var start_next_wave_ui = $"../../LevelUI/VBoxContainerUi/TopRowUi/PanelContainer2/ControlHBox/StartNextWaveUi"
 
 var current_wave := 0
 var spawn_queue: Array[EnemySpawnData] = []
