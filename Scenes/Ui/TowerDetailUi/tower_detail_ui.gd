@@ -1,4 +1,4 @@
-extends ColorRect
+extends Panel
 
 @onready var toggle_priority_button = $VBoxContainer/TogglePriorityButton
 

@@ -1,13 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0n8nrvk3quix"]
+[gd_scene load_steps=3 format=3 uid="uid://d0n8nrvk3quix"]
 
 [ext_resource type="Script" uid="uid://cykm62fkkato0" path="res://Scenes/Ui/GoldUi/gold_ui.gd" id="1_y28hg"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3j27b"]
 size = Vector2(32, 32)
-
-[sub_resource type="LabelSettings" id="LabelSettings_3j27b"]
-font_size = 24
-font_color = Color(0, 0, 0, 1)
 
 [node name="GoldUI" type="ColorRect"]
 custom_minimum_size = Vector2(170, 32)
@@ -32,5 +28,4 @@ texture = SubResource("PlaceholderTexture2D_3j27b")
 [node name="GoldLabel" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 text = "0000000"
-label_settings = SubResource("LabelSettings_3j27b")
 vertical_alignment = 1

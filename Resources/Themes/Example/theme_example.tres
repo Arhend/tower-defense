@@ -1,0 +1,15 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://f15tfv05yhy5"]
+
+[ext_resource type="FontFile" uid="uid://c3gkkrg7bqdpa" path="res://Assets/Dev/rainyhearts.ttf" id="1_000mn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_utsca"]
+bg_color = Color(0.09795978, 0.20895764, 0.17221925, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[resource]
+default_font = ExtResource("1_000mn")
+default_font_size = 32
+Panel/styles/panel = SubResource("StyleBoxFlat_utsca")

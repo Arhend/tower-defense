@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8fnil0fcw7m7"]
+
+[ext_resource type="Theme" uid="uid://f15tfv05yhy5" path="res://Resources/Themes/Example/theme_example.tres" id="1_an07u"]
+[ext_resource type="Theme" uid="uid://bnry2bn7f4hwf" path="res://Resources/EnemySpawnData/second_example.tres" id="2_6wl8c"]
+
+[node name="ThemeExample" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_an07u")
+
+[node name="Label1" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -73.0
+offset_right = 73.0
+offset_bottom = 30.0
+grow_horizontal = 2
+text = "Hello World"
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -154.5
+offset_right = 256.0
+offset_bottom = 154.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_6wl8c")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = -15.0
+offset_right = 73.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Hello World"
