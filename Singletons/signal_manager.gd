@@ -14,3 +14,4 @@ signal on_toggle_autostart_waves()
 signal on_toggle_fast_forward()
 
 signal on_tower_clicked(tower: BaseTower)
+signal on_tower_damage_dealt(tower: BaseTower)

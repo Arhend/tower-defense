@@ -3,11 +3,11 @@ extends Area2D
 class_name BaseTower
 
 enum TargetPriorities {
-    LAST, 
+    LAST,
     FIRST
 }
 
-@export var tower_stats: TowerStats 
+@export var tower_stats: TowerStats
 
 @export var projectile: PackedScene
 @export var projectile_stats: ProjectileStats
@@ -19,7 +19,7 @@ enum TargetPriorities {
 
 var enemies_in_range: Array[BaseEnemy]
 var can_attack := true
-var targeting_priority: TargetPriorities = TargetPriorities.FIRST 
+var targeting_priority: TargetPriorities = TargetPriorities.FIRST
 
 func _ready():
     collision_shape_2d.shape.radius = tower_stats.attack_range
@@ -56,8 +56,13 @@ func spawn_projectile(target: BaseEnemy):
         proj.look_at(target.global_position)
         
         proj.set_projectile_stats(projectile_stats)
+        proj.owner_tower = self
         get_tree().root.call_deferred("add_child", proj)
         
+func register_damage(enemy: BaseEnemy):
+    tower_stats.damage_count += 1
+    SignalManager.on_tower_damage_dealt.emit(self)
+
 func toggle_priority() -> TargetPriorities:
     targeting_priority = (targeting_priority + 1) % TargetPriorities.size()
     return targeting_priority

@@ -7,9 +7,10 @@ class_name BaseProjectile
 var projectile_pierce_limit: int = 5
 var hit_count: int = 0
 var damage: int = 1
+var owner_tower: BaseTower = null
 
 # Variable to not accidentally trigger
-# multiple enemies to be hit by the projectile if 
+# multiple enemies to be hit by the projectile if
 # collisions are overlapping
 var has_hit := false
 
@@ -23,7 +24,9 @@ func set_projectile_stats(projectile_stats: ProjectileStats):
 func _on_area_entered(area):
     if area.is_in_group("enemy") and hit_count < projectile_pierce_limit:
         hit_count += 1
+        var enemy_health_before = area.health
         area.take_damage(damage)
+        owner_tower.register_damage(area)
 
         if hit_count >= projectile_pierce_limit:
             queue_free()

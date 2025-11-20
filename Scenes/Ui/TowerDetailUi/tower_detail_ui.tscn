@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1y0a6twnag5x"]
+[gd_scene load_steps=6 format=3 uid="uid://d1y0a6twnag5x"]
 
 [ext_resource type="Script" uid="uid://saa68dyx8t41" path="res://Scenes/Ui/TowerDetailUi/tower_detail_ui.gd" id="1_40msb"]
+[ext_resource type="Theme" uid="uid://duabvow4i86km" path="res://Resources/Themes/Base/base_theme.tres" id="1_qg5uv"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qg5uv"]
+size = Vector2(127, 127)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2qb18"]
+size = Vector2(64, 64)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_gf102"]
+size = Vector2(32, 32)
 
 [node name="TowerDetailUi" type="Panel"]
 custom_minimum_size = Vector2(200, 0)
@@ -11,34 +21,109 @@ anchor_bottom = 1.0
 offset_left = -200.0
 grow_horizontal = 0
 grow_vertical = 2
+theme = ExtResource("1_qg5uv")
 script = ExtResource("1_40msb")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Grid" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SellButton" type="Button" parent="VBoxContainer"]
+[node name="TopRow" type="HBoxContainer" parent="Grid"]
 layout_mode = 2
-text = "Sell"
 
-[node name="HideDetailsButton" type="Button" parent="VBoxContainer"]
+[node name="HideDetailsButton" type="Button" parent="Grid/TopRow"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-text = "Hide Details"
+size_flags_horizontal = 10
+text = "X
+"
 
-[node name="TogglePriorityButton" type="Button" parent="VBoxContainer"]
+[node name="ContentRows" type="VBoxContainer" parent="Grid"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TowerTexture" type="TextureRect" parent="Grid/ContentRows"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = SubResource("PlaceholderTexture2D_qg5uv")
+
+[node name="Spacer" type="Control" parent="Grid/ContentRows"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="TargetPriorityText" type="Label" parent="Grid/ContentRows"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Target Priority"
+
+[node name="TogglePriorityButton" type="Button" parent="Grid/ContentRows"]
+custom_minimum_size = Vector2(100, 32)
+layout_mode = 2
+size_flags_horizontal = 4
 text = "FIRST"
 
-[connection signal="pressed" from="VBoxContainer/SellButton" to="." method="_on_sell_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/HideDetailsButton" to="." method="_on_hide_details_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/TogglePriorityButton" to="." method="_on_toggle_priority_button_pressed"]
+[node name="Spacer2" type="Control" parent="Grid/ContentRows"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="UpgradeTexture1" type="TextureRect" parent="Grid/ContentRows"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = SubResource("PlaceholderTexture2D_2qb18")
+
+[node name="Spacer4" type="Control" parent="Grid/ContentRows"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="UpgradeTexture2" type="TextureRect" parent="Grid/ContentRows"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = SubResource("PlaceholderTexture2D_2qb18")
+
+[node name="Spacer5" type="Control" parent="Grid/ContentRows"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="UpgradeTexture3" type="TextureRect" parent="Grid/ContentRows"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = SubResource("PlaceholderTexture2D_2qb18")
+
+[node name="BottomContentRow" type="HBoxContainer" parent="Grid/ContentRows"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="DamageCountIcon" type="TextureRect" parent="Grid/ContentRows/BottomContentRow"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("PlaceholderTexture2D_gf102")
+
+[node name="Spacer" type="Control" parent="Grid/ContentRows/BottomContentRow"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="DamageCountLabel" type="Label" parent="Grid/ContentRows/BottomContentRow"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "0"
+
+[node name="SellButton" type="Button" parent="Grid/ContentRows"]
+custom_minimum_size = Vector2(100, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+text = "Sell"
+
+[node name="Spacer3" type="Control" parent="Grid/ContentRows"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[connection signal="pressed" from="Grid/TopRow/HideDetailsButton" to="." method="_on_hide_details_button_pressed"]
+[connection signal="pressed" from="Grid/ContentRows/TogglePriorityButton" to="." method="_on_toggle_priority_button_pressed"]
+[connection signal="pressed" from="Grid/ContentRows/SellButton" to="." method="_on_sell_button_pressed"]
