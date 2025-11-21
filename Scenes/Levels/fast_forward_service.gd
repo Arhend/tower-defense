@@ -9,7 +9,7 @@ enum FastForwardSpeed {
 
 var fast_forward_state: FastForwardSpeed = FastForwardSpeed.SPEED_1X
 
-@onready var fast_forward_ui = $"../../LevelUI/VBoxContainerUi/TopRowUi/PanelContainer2/ControlHBox/FastForwardUi"
+@onready var fast_forward_button_ui = $"../../LevelUI/VBoxContainerUi/TopRowUi/PanelContainer2/ControlHBox/FastForwardButtonUi"
 
 func _ready():
     SignalManager.on_toggle_fast_forward.connect(_on_toggle_fast_forward)
@@ -21,13 +21,13 @@ func _on_toggle_fast_forward():
     match fast_forward_state:
         FastForwardSpeed.SPEED_1X:
             Engine.time_scale = 1.0
-            fast_forward_ui.update_debug_label("1x")
+            fast_forward_button_ui.update_button_text("1x")
         FastForwardSpeed.SPEED_2X:
             Engine.time_scale = 2.0
-            fast_forward_ui.update_debug_label("2x")
+            fast_forward_button_ui.update_button_text("2x")
         FastForwardSpeed.SPEED_3X:
             Engine.time_scale = 3.0
-            fast_forward_ui.update_debug_label("3x")
+            fast_forward_button_ui.update_button_text("3x")
         FastForwardSpeed.SPEED_4X:
             Engine.time_scale = 4.0
-            fast_forward_ui.update_debug_label("4x")
+            fast_forward_button_ui.update_button_text("4x")

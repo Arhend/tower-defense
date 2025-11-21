@@ -26,7 +26,7 @@
 [ext_resource type="Resource" uid="uid://c4m8n2p6ras3u" path="res://Resources/Waves/Easy/wave8.tres" id="17_g66x3"]
 [ext_resource type="Resource" uid="uid://b5oap4r7s2t6w" path="res://Resources/Waves/Easy/wave9.tres" id="18_nwww2"]
 [ext_resource type="Resource" uid="uid://br6d2gpe3goif" path="res://Resources/Waves/Easy/wave10.tres" id="19_5mlh2"]
-[ext_resource type="PackedScene" uid="uid://8b0l5glc75b2" path="res://Scenes/Ui/FastForwardUi/fast_forward_ui.tscn" id="19_xat8b"]
+[ext_resource type="PackedScene" uid="uid://8b0l5glc75b2" path="res://Scenes/Ui/FastForwardButtonUi/fast_forward_button_ui.tscn" id="19_xat8b"]
 [ext_resource type="Theme" uid="uid://duabvow4i86km" path="res://Resources/Themes/Base/base_theme.tres" id="23_5mlh2"]
 [ext_resource type="PackedScene" uid="uid://d1y0a6twnag5x" path="res://Scenes/Ui/TowerDetailUi/tower_detail_ui.tscn" id="28_vk7aq"]
 [ext_resource type="PackedScene" uid="uid://6khrym5d48mq" path="res://Scenes/Ui/TowerPurchasePanelButtonUi/tower_purchase_button_ui.tscn" id="29_sthf1"]
@@ -210,6 +210,7 @@ layout_mode = 2
 mouse_filter = 2
 
 [node name="TopRowUi" type="HBoxContainer" parent="LevelUI/VBoxContainerUi"]
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="LevelUI/VBoxContainerUi/TopRowUi"]
@@ -246,17 +247,18 @@ mouse_filter = 2
 layout_mode = 2
 
 [node name="ControlHBox" type="HBoxContainer" parent="LevelUI/VBoxContainerUi/TopRowUi/PanelContainer2"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="StartNextWaveUi" parent="LevelUI/VBoxContainerUi/TopRowUi/PanelContainer2/ControlHBox" instance=ExtResource("14_3o7cg")]
 custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 6
 
-[node name="FastForwardUi" parent="LevelUI/VBoxContainerUi/TopRowUi/PanelContainer2/ControlHBox" instance=ExtResource("19_xat8b")]
-custom_minimum_size = Vector2(120, 32)
+[node name="FastForwardButtonUi" parent="LevelUI/VBoxContainerUi/TopRowUi/PanelContainer2/ControlHBox" instance=ExtResource("19_xat8b")]
 layout_mode = 2
+size_flags_horizontal = 6
 
 [node name="Spacer" type="Control" parent="LevelUI/VBoxContainerUi"]
 custom_minimum_size = Vector2(0, 32)
@@ -298,6 +300,7 @@ grow_vertical = 0
 pause_menu = NodePath("../PauseMenuUi")
 
 [node name="PauseMenuUi" parent="LevelUI" instance=ExtResource("36_t8lfh")]
+visible = false
 
 [connection signal="timeout" from="Services/DebugService/ActivateEnemyTimer" to="Services/DebugService" method="_on_activate_enemy_timer_timeout"]
 [connection signal="area_entered" from="Services/TowerPurchaseService/SelectedTowerArea" to="Services/TowerPurchaseService" method="_on_selected_tower_area_area_entered"]

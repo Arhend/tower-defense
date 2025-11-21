@@ -1,0 +1,34 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://b4tk5wojck5al"]
+
+[ext_resource type="FontFile" uid="uid://c3gkkrg7bqdpa" path="res://Assets/Dev/rainyhearts.ttf" id="1_slfqm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_slfqm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b6o4u"]
+bg_color = Color(0.15555617, 0.35111344, 0.41490698, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tddvn"]
+bg_color = Color(0.22745098, 0.47843137, 0.56078434, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lyavw"]
+bg_color = Color(0.105219506, 0.25658268, 0.30584627, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[resource]
+default_font = ExtResource("1_slfqm")
+default_font_size = 32
+Button/styles/focus = SubResource("StyleBoxEmpty_slfqm")
+Button/styles/hover = SubResource("StyleBoxFlat_b6o4u")
+Button/styles/normal = SubResource("StyleBoxFlat_tddvn")
+Button/styles/pressed = SubResource("StyleBoxFlat_lyavw")
