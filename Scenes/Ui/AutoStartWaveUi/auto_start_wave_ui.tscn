@@ -1,15 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://cvuc7ocfri66r"]
 
+[ext_resource type="Theme" uid="uid://bt22f2eo3xl6f" path="res://Resources/Themes/Base/toggle_button_theme.tres" id="1_0eivw"]
 [ext_resource type="Script" uid="uid://56plcyeqt6uu" path="res://Scenes/Ui/AutoStartWaveUi/auto_start_wave_ui.gd" id="1_utqv4"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_utqv4"]
-size = Vector2(32, 32)
-
-[node name="AutoStartWaveUi" type="ColorRect"]
-custom_minimum_size = Vector2(100, 32)
+[node name="AutoStartWaveUi" type="Panel"]
+custom_minimum_size = Vector2(250, 32)
 offset_right = 100.0
 offset_bottom = 32.0
-color = Color(1, 1, 1, 0)
+theme = ExtResource("1_0eivw")
 script = ExtResource("1_utqv4")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -19,19 +17,23 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -33.0
+offset_left = -76.0
 offset_top = -16.0
-offset_right = 33.0
+offset_right = 76.0
 offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="AutoStartWaveButton" type="TextureButton" parent="HBoxContainer"]
+[node name="OptionName" type="Label" parent="HBoxContainer"]
 layout_mode = 2
-texture_normal = SubResource("PlaceholderTexture2D_utqv4")
+text = "Autostart"
 
-[node name="DebugLabel" type="Label" parent="HBoxContainer"]
+[node name="Spacer" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
-text = "OFF"
 
-[connection signal="pressed" from="HBoxContainer/AutoStartWaveButton" to="." method="_on_auto_start_wave_button_pressed"]
+[node name="AutoStartToggleButton" type="CheckButton" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[connection signal="toggled" from="HBoxContainer/AutoStartToggleButton" to="." method="_on_check_button_toggled"]

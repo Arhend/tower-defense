@@ -1,11 +1,13 @@
-extends Panel
+extends ColorRect
 
 class_name PauseMenuUi
 
 var prev_time_scale: float
 
 func _ready():
-    hide_pause_menu()
+    # Not calling hide_pause_menu here since we don't 
+    # want to update the time scale
+    hide()
 
 func show_pause_menu():
     if visible:

@@ -1,11 +1,9 @@
-extends ColorRect
+extends Panel
 
-@onready var debug_label = $HBoxContainer/DebugLabel
+@onready var auto_start_toggle_button = $HBoxContainer/AutoStartToggleButton
 
-func _on_auto_start_wave_button_pressed():
+func _ready():
+    pass
+
+func _on_check_button_toggled(toggled_on):
     SignalManager.on_toggle_autostart_waves.emit()
-    
-    if debug_label.text == "OFF":
-        debug_label.text = "ON"
-    else:
-        debug_label.text = "OFF"
