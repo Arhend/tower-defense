@@ -29,13 +29,13 @@
 [ext_resource type="PackedScene" uid="uid://8b0l5glc75b2" path="res://Scenes/Ui/FastForwardUi/fast_forward_ui.tscn" id="19_xat8b"]
 [ext_resource type="Theme" uid="uid://duabvow4i86km" path="res://Resources/Themes/Base/base_theme.tres" id="23_5mlh2"]
 [ext_resource type="PackedScene" uid="uid://d1y0a6twnag5x" path="res://Scenes/Ui/TowerDetailUi/tower_detail_ui.tscn" id="28_vk7aq"]
-[ext_resource type="PackedScene" uid="uid://cvuc7ocfri66r" path="res://Scenes/Ui/AutoStartWaveUi/auto_start_wave_ui.tscn" id="29_g66x3"]
 [ext_resource type="PackedScene" uid="uid://6khrym5d48mq" path="res://Scenes/Ui/TowerPurchasePanelButtonUi/tower_purchase_button_ui.tscn" id="29_sthf1"]
 [ext_resource type="Resource" uid="uid://ogvk4x1suasd" path="res://Resources/TowerStats/brush_tower_stats.tres" id="30_e1tbu"]
-[ext_resource type="PackedScene" uid="uid://co3864jx8ld0a" path="res://Scenes/Ui/SettingsButtonUi/settings_button_ui.tscn" id="30_nwww2"]
+[ext_resource type="PackedScene" uid="uid://co3864jx8ld0a" path="res://Scenes/Ui/ShowPauseMenuButtonUi/show_pause_menu_button_ui.tscn" id="30_nwww2"]
 [ext_resource type="Texture2D" uid="uid://csfaw2blqjs8v" path="res://Assets/Dev/green16x16.png" id="30_pde7n"]
 [ext_resource type="Texture2D" uid="uid://bedqxe1pfye1v" path="res://Assets/Dev/purple16x16.png" id="31_uemjo"]
 [ext_resource type="Resource" uid="uid://ckna57nrkamxx" path="res://Resources/TowerStats/roller_tower_stats.tres" id="32_t8lfh"]
+[ext_resource type="PackedScene" uid="uid://d0o6176v7i4t3" path="res://Scenes/Ui/PauseMenuUi/pause_menu_ui.tscn" id="36_t8lfh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xghcx"]
 texture = ExtResource("4_lai3q")
@@ -288,19 +288,16 @@ texture = ExtResource("31_uemjo")
 [node name="TowerDetailUi" parent="LevelUI" instance=ExtResource("28_vk7aq")]
 visible = false
 
-[node name="AutoStartWaveUi" parent="LevelUI" instance=ExtResource("29_g66x3")]
-offset_left = 10.0
-offset_top = 250.0
-offset_right = 180.0
-offset_bottom = 290.0
-
-[node name="SettingsButtonUi" parent="LevelUI" instance=ExtResource("30_nwww2")]
+[node name="ShowPauseMenuButton" parent="LevelUI" node_paths=PackedStringArray("pause_menu") instance=ExtResource("30_nwww2")]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = -40.0
 offset_bottom = 0.0
 grow_vertical = 0
+pause_menu = NodePath("../PauseMenuUi")
+
+[node name="PauseMenuUi" parent="LevelUI" instance=ExtResource("36_t8lfh")]
 
 [connection signal="timeout" from="Services/DebugService/ActivateEnemyTimer" to="Services/DebugService" method="_on_activate_enemy_timer_timeout"]
 [connection signal="area_entered" from="Services/TowerPurchaseService/SelectedTowerArea" to="Services/TowerPurchaseService" method="_on_selected_tower_area_area_entered"]

@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0o6176v7i4t3"]
+
+[ext_resource type="Theme" uid="uid://duabvow4i86km" path="res://Resources/Themes/Base/base_theme.tres" id="1_cue0k"]
+[ext_resource type="Script" uid="uid://43er84gk3dsk" path="res://Scenes/Ui/PauseMenuUi/pause_menu_ui.gd" id="1_pgwm6"]
+[ext_resource type="PackedScene" uid="uid://cvuc7ocfri66r" path="res://Scenes/Ui/AutoStartWaveUi/auto_start_wave_ui.tscn" id="2_g67b5"]
+
+[node name="PauseMenuUi" type="Panel"]
+custom_minimum_size = Vector2(520, 520)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_cue0k")
+script = ExtResource("1_pgwm6")
+
+[node name="ClosePauseMenuButton" type="Button" parent="."]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -32.0
+offset_bottom = 32.0
+grow_horizontal = 0
+text = "X"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AutoStartWaveUi" parent="VBoxContainer" instance=ExtResource("2_g67b5")]
+layout_mode = 2
+
+[connection signal="pressed" from="ClosePauseMenuButton" to="." method="_on_close_pause_menu_button_pressed"]

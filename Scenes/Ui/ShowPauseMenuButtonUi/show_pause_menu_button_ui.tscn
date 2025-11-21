@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://co3864jx8ld0a"]
 
-[ext_resource type="Script" uid="uid://bgmdn4pewog8f" path="res://Scenes/Ui/SettingsButtonUi/settings_button_ui.gd" id="1_f3nig"]
+[ext_resource type="Script" uid="uid://bgmdn4pewog8f" path="res://Scenes/Ui/ShowPauseMenuButtonUi/show_pause_menu_button_ui.gd" id="1_f3nig"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_f3nig"]
 size = Vector2(32, 32)
 
-[node name="SettingsButtonUi" type="ColorRect"]
+[node name="ShowPauseMenuButtonUi" type="ColorRect"]
 custom_minimum_size = Vector2(80, 40)
 offset_right = 80.0
 offset_bottom = 32.0
