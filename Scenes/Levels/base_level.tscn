@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://5qpus177p1k8"]
+[gd_scene load_steps=51 format=4 uid="uid://5qpus177p1k8"]
 
 [ext_resource type="Script" uid="uid://djguggas7vstx" path="res://Scenes/Levels/base_level.gd" id="1_s0vl6"]
 [ext_resource type="Script" uid="uid://bpfeyhcmsaa4p" path="res://Scenes/Levels/enemy_pooling_service.gd" id="1_ssatm"]
@@ -31,9 +31,11 @@
 [ext_resource type="PackedScene" uid="uid://d1y0a6twnag5x" path="res://Scenes/Ui/TowerDetailUi/tower_detail_ui.tscn" id="28_vk7aq"]
 [ext_resource type="PackedScene" uid="uid://cvuc7ocfri66r" path="res://Scenes/Ui/AutoStartWaveUi/auto_start_wave_ui.tscn" id="29_g66x3"]
 [ext_resource type="PackedScene" uid="uid://6khrym5d48mq" path="res://Scenes/Ui/TowerPurchasePanelButtonUi/tower_purchase_button_ui.tscn" id="29_sthf1"]
+[ext_resource type="Resource" uid="uid://ogvk4x1suasd" path="res://Resources/TowerStats/brush_tower_stats.tres" id="30_e1tbu"]
 [ext_resource type="PackedScene" uid="uid://co3864jx8ld0a" path="res://Scenes/Ui/SettingsButtonUi/settings_button_ui.tscn" id="30_nwww2"]
 [ext_resource type="Texture2D" uid="uid://csfaw2blqjs8v" path="res://Assets/Dev/green16x16.png" id="30_pde7n"]
 [ext_resource type="Texture2D" uid="uid://bedqxe1pfye1v" path="res://Assets/Dev/purple16x16.png" id="31_uemjo"]
+[ext_resource type="Resource" uid="uid://ckna57nrkamxx" path="res://Resources/TowerStats/roller_tower_stats.tres" id="32_t8lfh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xghcx"]
 texture = ExtResource("4_lai3q")
@@ -273,11 +275,13 @@ size_flags_horizontal = 6
 
 [node name="BrushTowerButton" parent="LevelUI/VBoxContainerUi/TowerScrollContainerUi/VBoxContainer" instance=ExtResource("29_sthf1")]
 layout_mode = 2
+tower_stats = ExtResource("30_e1tbu")
 tower_name = "Brush"
 texture = ExtResource("30_pde7n")
 
 [node name="RollerTowerButton" parent="LevelUI/VBoxContainerUi/TowerScrollContainerUi/VBoxContainer" instance=ExtResource("29_sthf1")]
 layout_mode = 2
+tower_stats = ExtResource("32_t8lfh")
 tower_name = "Roller"
 texture = ExtResource("31_uemjo")
 

@@ -12,8 +12,6 @@ enum TargetPriorities {
 @export var projectile: PackedScene
 @export var projectile_stats: ProjectileStats
 
-@export var cost: int = 10
-
 @onready var collision_shape_2d = $AttackRange/CollisionShape2D
 @onready var attack_timer = $AttackTimer
 

@@ -40,7 +40,7 @@ func activate(screen_position: Vector2):
     tower_instance.global_position = get_viewport().get_canvas_transform().affine_inverse() * screen_position
     tower_instance.set_meta(JUST_PLACED, true)
     add_child(tower_instance)
-    SignalManager.on_gold_removed.emit(tower_instance.cost)
+    SignalManager.on_gold_removed.emit(tower_instance.tower_stats.cost)
     deactivate()
 
 func deactivate():
@@ -50,7 +50,7 @@ func deactivate():
 
 func has_enough_gold(tower_scene: PackedScene) -> bool:
     var temp_tower = tower_scene.instantiate()
-    var tower_cost = temp_tower.cost
+    var tower_cost = temp_tower.tower_stats.cost
     temp_tower.queue_free()
     return gold_service.get_gold_amount() >= tower_cost
 

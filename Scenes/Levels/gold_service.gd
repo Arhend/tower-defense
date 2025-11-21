@@ -13,7 +13,6 @@ func _ready():
     # Wait to ensure gold ui is ready
     await get_tree().process_frame
     
-        
     gold_ui.set_ui_text(gold)
 
 func get_gold_amount() -> int:
@@ -22,7 +21,9 @@ func get_gold_amount() -> int:
 func _on_gold_earned(value: int):
     gold += value
     gold_ui.set_ui_text(gold)
+    SignalManager.on_gold_updated.emit(gold)
 
 func _on_gold_removed(value: int):
     gold -= value
     gold_ui.set_ui_text(gold)
+    SignalManager.on_gold_updated.emit(gold)
