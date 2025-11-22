@@ -1,17 +1,73 @@
-[gd_scene load_steps=7 format=3 uid="uid://jtug3iwvv4pg"]
+[gd_scene load_steps=12 format=3 uid="uid://jtug3iwvv4pg"]
 
 [ext_resource type="PackedScene" uid="uid://cfwbn1expd5ho" path="res://Scenes/Towers/base_tower.tscn" id="1_qptkl"]
 [ext_resource type="Script" uid="uid://b3g6dd2rjru13" path="res://Scenes/Towers/BrushTower/brush_tower.gd" id="2_0m2c5"]
 [ext_resource type="PackedScene" uid="uid://bo7bji3b3i0j6" path="res://Scenes/Towers/Projectiles/BrushProjectile/brush_projectile.tscn" id="2_s2pvc"]
 [ext_resource type="Resource" uid="uid://ogvk4x1suasd" path="res://Resources/TowerStats/brush_tower_stats.tres" id="3_nfkh2"]
 [ext_resource type="Script" uid="uid://q2xyw2do3xnp" path="res://Resources/ProjectileStats/projectile_stats.gd" id="4_2dwq2"]
+[ext_resource type="Texture2D" uid="uid://bseh4krilgudt" path="res://Assets/Aseprite/Towers/BrushTowerSheet2x.png" id="6_62sbr"]
 
 [sub_resource type="Resource" id="Resource_nfkh2"]
 script = ExtResource("4_2dwq2")
 metadata/_custom_type_script = "uid://q2xyw2do3xnp"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_62sbr"]
+size = Vector2(30, 53)
+
+[sub_resource type="Animation" id="Animation_uoga2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_62sbr"]
+resource_name = "idle"
+length = 1.25
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uoga2"]
+_data = {
+&"RESET": SubResource("Animation_uoga2"),
+&"idle": SubResource("Animation_62sbr")
+}
 
 [node name="BrushTower" instance=ExtResource("1_qptkl")]
 script = ExtResource("2_0m2c5")
 tower_stats = ExtResource("3_nfkh2")
 projectile = ExtResource("2_s2pvc")
 projectile_stats = SubResource("Resource_nfkh2")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_62sbr")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("6_62sbr")
+hframes = 7
+
+[node name="AnimationPlayer" parent="." index="4"]
+libraries = {
+&"": SubResource("AnimationLibrary_uoga2")
+}

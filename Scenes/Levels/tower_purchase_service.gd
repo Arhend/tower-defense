@@ -5,7 +5,7 @@ class_name TowerPurchaseService
 const JUST_PLACED: String = "_just_placed"
 
 const BRUSH_TOWER = preload("uid://jtug3iwvv4pg")
-const BRUSH_TOWER_TEXTURE = preload("uid://csfaw2blqjs8v")
+const BRUSH_TOWER_TEXTURE = preload("uid://b06omkgqvlu3m")
 
 const ROLLER_TOWER = preload("uid://bucak3nuft56r")
 const ROLLER_TOWER_TEXTURE = preload("uid://bedqxe1pfye1v")

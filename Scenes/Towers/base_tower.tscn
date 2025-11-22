@@ -29,6 +29,8 @@ shape = SubResource("CircleShape2D_m8eit")
 
 [node name="AttackTimer" type="Timer" parent="."]
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="area_entered" from="AttackRange" to="." method="_on_attack_range_area_entered"]
 [connection signal="area_exited" from="AttackRange" to="." method="_on_attack_range_area_exited"]
