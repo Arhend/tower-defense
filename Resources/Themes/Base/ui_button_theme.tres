@@ -27,7 +27,7 @@ corner_radius_bottom_left = 6
 
 [resource]
 default_font = ExtResource("1_slfqm")
-default_font_size = 32
+default_font_size = 28
 Button/styles/focus = SubResource("StyleBoxEmpty_slfqm")
 Button/styles/hover = SubResource("StyleBoxFlat_b6o4u")
 Button/styles/normal = SubResource("StyleBoxFlat_tddvn")

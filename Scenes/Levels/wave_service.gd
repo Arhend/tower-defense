@@ -6,7 +6,7 @@ extends Node2D
 @onready var spawn_timer: Timer = $SpawnTimer
 @onready var wave_timer: Timer = $WaveTimer
 @onready var current_wave_ui = $"../../LevelUI/VBoxContainerUi/TopRowUi/PanelContainer/DataHBox/CurrentWaveUi"
-@onready var start_next_wave_ui = $"../../LevelUI/VBoxContainerUi/TopRowUi/PanelContainer2/ControlHBox/StartNextWaveUi"
+@onready var start_next_wave_button_ui = $"../../LevelUI/VBoxContainerUi/TopRowUi/PanelContainer2/ControlHBox/StartNextWaveButtonUi"
 
 var current_wave := 0
 var spawn_queue: Array[EnemySpawnData] = []
@@ -49,11 +49,11 @@ func wave_finished():
     current_wave_ui.set_ui_text(current_wave + 1)
 
     # Wave is done let us go to next on user input
-    start_next_wave_ui.enable_button()
+    start_next_wave_button_ui.enable_button()
 
     if auto_start_waves:
         start_wave()
-        start_next_wave_ui.disable_button()
+        start_next_wave_button_ui.disable_button()
 
 func _on_enemy_deactivated(_enemy: BaseEnemy):
     active_enemies -= 1

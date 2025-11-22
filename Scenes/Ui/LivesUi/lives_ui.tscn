@@ -1,9 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ugyo6rgb04y0"]
 
 [ext_resource type="Script" uid="uid://bxhsiw6xsnq8h" path="res://Scenes/Ui/LivesUi/lives_ui.gd" id="1_bxmpq"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_acctf"]
-size = Vector2(32, 32)
+[ext_resource type="Texture2D" uid="uid://cy5bxpfjfukq4" path="res://Assets/Aseprite/Ui/GreenHeart2x.png" id="2_5u0qn"]
 
 [node name="LivesUi" type="ColorRect"]
 custom_minimum_size = Vector2(170, 32)
@@ -23,7 +21,9 @@ theme_override_constants/separation = 12
 
 [node name="LivesIcon" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
-texture = SubResource("PlaceholderTexture2D_acctf")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_5u0qn")
 
 [node name="LivesLabel" type="Label" parent="HBoxContainer"]
 layout_mode = 2

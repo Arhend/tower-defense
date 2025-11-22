@@ -1,9 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d0n8nrvk3quix"]
 
 [ext_resource type="Script" uid="uid://cykm62fkkato0" path="res://Scenes/Ui/GoldUi/gold_ui.gd" id="1_y28hg"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3j27b"]
-size = Vector2(32, 32)
+[ext_resource type="Texture2D" uid="uid://b86rehgj6h5jc" path="res://Assets/Aseprite/Ui/BagOfGold2x.png" id="2_33r86"]
 
 [node name="GoldUI" type="ColorRect"]
 custom_minimum_size = Vector2(170, 32)
@@ -23,7 +21,7 @@ theme_override_constants/separation = 12
 
 [node name="GoldIcon" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
-texture = SubResource("PlaceholderTexture2D_3j27b")
+texture = ExtResource("2_33r86")
 
 [node name="GoldLabel" type="Label" parent="HBoxContainer"]
 layout_mode = 2

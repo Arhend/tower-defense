@@ -1,29 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://co3864jx8ld0a"]
 
 [ext_resource type="Script" uid="uid://bgmdn4pewog8f" path="res://Scenes/Ui/ShowPauseMenuButtonUi/show_pause_menu_button_ui.gd" id="1_f3nig"]
+[ext_resource type="Texture2D" uid="uid://cshxt8toe2qoi" path="res://Assets/Aseprite/Ui/SettingsIcon2x.png" id="1_ki4td"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_f3nig"]
-size = Vector2(32, 32)
-
-[node name="ShowPauseMenuButtonUi" type="ColorRect"]
-custom_minimum_size = Vector2(80, 40)
-offset_right = 80.0
+[node name="ShowPauseMenuButtonUi" type="TextureButton"]
+offset_right = 32.0
 offset_bottom = 32.0
-color = Color(1, 1, 1, 0)
-script = ExtResource("1_f3nig")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="SettingsButton" type="TextureButton" parent="HBoxContainer"]
-layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
-texture_normal = SubResource("PlaceholderTexture2D_f3nig")
+texture_normal = ExtResource("1_ki4td")
+script = ExtResource("1_f3nig")
 
-[connection signal="pressed" from="HBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

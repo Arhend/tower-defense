@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://ugyo6rgb04y0" path="res://Scenes/Ui/LivesUi/lives_ui.tscn" id="11_34r03"]
 [ext_resource type="Resource" uid="uid://iphka30754xf" path="res://Resources/Waves/Easy/wave3.tres" id="12_a8n0m"]
 [ext_resource type="Resource" uid="uid://dyysjf1wdb4bn" path="res://Resources/Waves/Easy/wave4.tres" id="13_txu3m"]
-[ext_resource type="PackedScene" uid="uid://b3iglwy70nwwi" path="res://Scenes/Ui/StartNextWaveUi/start_next_wave_ui.tscn" id="14_3o7cg"]
 [ext_resource type="Resource" uid="uid://c8m5n3qaq1x7y" path="res://Resources/Waves/Easy/wave5.tres" id="14_67sl2"]
 [ext_resource type="Resource" uid="uid://ba65o3oofgxu7" path="res://Resources/Waves/Easy/wave6.tres" id="15_1mc0y"]
 [ext_resource type="Script" uid="uid://dsnxdxghr3c2b" path="res://Scenes/Levels/fast_forward_service.gd" id="15_5xk34"]
@@ -28,6 +27,7 @@
 [ext_resource type="Resource" uid="uid://br6d2gpe3goif" path="res://Resources/Waves/Easy/wave10.tres" id="19_5mlh2"]
 [ext_resource type="PackedScene" uid="uid://8b0l5glc75b2" path="res://Scenes/Ui/FastForwardButtonUi/fast_forward_button_ui.tscn" id="19_xat8b"]
 [ext_resource type="Theme" uid="uid://duabvow4i86km" path="res://Resources/Themes/Base/base_theme.tres" id="23_5mlh2"]
+[ext_resource type="PackedScene" uid="uid://ba2ld40oo5nby" path="res://Scenes/Ui/StartNextWaveButtonUi/start_next_wave_button_ui.tscn" id="27_t8lfh"]
 [ext_resource type="PackedScene" uid="uid://d1y0a6twnag5x" path="res://Scenes/Ui/TowerDetailUi/tower_detail_ui.tscn" id="28_vk7aq"]
 [ext_resource type="PackedScene" uid="uid://6khrym5d48mq" path="res://Scenes/Ui/TowerPurchasePanelButtonUi/tower_purchase_button_ui.tscn" id="29_sthf1"]
 [ext_resource type="Resource" uid="uid://ogvk4x1suasd" path="res://Resources/TowerStats/brush_tower_stats.tres" id="30_e1tbu"]
@@ -220,6 +220,7 @@ size_flags_horizontal = 3
 [node name="DataHBox" type="HBoxContainer" parent="LevelUI/VBoxContainerUi/TopRowUi/PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
 
 [node name="Spacer" type="Control" parent="LevelUI/VBoxContainerUi/TopRowUi/PanelContainer/DataHBox"]
 custom_minimum_size = Vector2(8, 0)
@@ -245,20 +246,28 @@ mouse_filter = 2
 
 [node name="PanelContainer2" type="PanelContainer" parent="LevelUI/VBoxContainerUi/TopRowUi"]
 layout_mode = 2
+size_flags_horizontal = 8
 
 [node name="ControlHBox" type="HBoxContainer" parent="LevelUI/VBoxContainerUi/TopRowUi/PanelContainer2"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="StartNextWaveUi" parent="LevelUI/VBoxContainerUi/TopRowUi/PanelContainer2/ControlHBox" instance=ExtResource("14_3o7cg")]
-custom_minimum_size = Vector2(120, 32)
+[node name="Spacer" type="Control" parent="LevelUI/VBoxContainerUi/TopRowUi/PanelContainer2/ControlHBox"]
+custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
-size_flags_horizontal = 6
+
+[node name="StartNextWaveButtonUi" parent="LevelUI/VBoxContainerUi/TopRowUi/PanelContainer2/ControlHBox" instance=ExtResource("27_t8lfh")]
+layout_mode = 2
+size_flags_horizontal = 8
 
 [node name="FastForwardButtonUi" parent="LevelUI/VBoxContainerUi/TopRowUi/PanelContainer2/ControlHBox" instance=ExtResource("19_xat8b")]
 layout_mode = 2
 size_flags_horizontal = 6
+
+[node name="Spacer2" type="Control" parent="LevelUI/VBoxContainerUi/TopRowUi/PanelContainer2/ControlHBox"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
 
 [node name="Spacer" type="Control" parent="LevelUI/VBoxContainerUi"]
 custom_minimum_size = Vector2(0, 32)
@@ -294,8 +303,10 @@ visible = false
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -40.0
-offset_bottom = 0.0
+offset_left = 10.0
+offset_top = -42.0
+offset_right = 42.0
+offset_bottom = -10.0
 grow_vertical = 0
 pause_menu = NodePath("../PauseMenuUi")
 
