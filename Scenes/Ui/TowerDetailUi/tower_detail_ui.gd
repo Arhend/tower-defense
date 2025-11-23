@@ -27,7 +27,7 @@ func update_damage_count_text():
     damage_count_label.text = regex.sub(num_str, ",", true)
     
 func _on_sell_button_pressed():
-    SignalManager.on_gold_earned.emit(tower.cost / 2)
+    SignalManager.on_gold_earned.emit(tower.tower_stats.cost / 2)
     tower.queue_free()
     hide_details()
     
