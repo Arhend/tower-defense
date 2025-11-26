@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb0ebqemw7okq"]
+
+[ext_resource type="PackedScene" uid="uid://8naw6kagkrra" path="res://Scenes/PaintBlobs/base_paint_blob.tscn" id="1_8u7vg"]
+
+[node name="BluePaintBlob" instance=ExtResource("1_8u7vg")]

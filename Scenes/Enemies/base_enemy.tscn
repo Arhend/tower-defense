@@ -9,6 +9,7 @@
 font_size = 8
 
 [node name="BaseEnemy" type="Area2D" groups=["enemy"]]
+z_index = 1
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_b3u8b")

@@ -64,9 +64,10 @@ func spawn_projectile(target: BaseEnemy):
         proj.name = "Projectile_%s" % UuidManager.v4()
         proj.global_position = global_position
         proj.look_at(target.global_position)
-        
+
         proj.set_projectile_stats(projectile_stats)
         proj.owner_tower = self
+        proj.paint_color = tower_color
         get_tree().root.call_deferred("add_child", proj)
         
 func register_damage(enemy: BaseEnemy):
@@ -89,7 +90,7 @@ func upgrade_tower_level():
 
 func get_tower_color() -> String:
     return TowerColor.keys()[tower_color].capitalize()
-    
+
 func _on_attack_range_area_entered(area):
     if area.is_in_group("enemy") and area.in_use:
         enemies_in_range.append(area)

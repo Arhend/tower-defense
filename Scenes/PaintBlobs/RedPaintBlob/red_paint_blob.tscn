@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://5m5lt3kdvyxw"]
+
+[ext_resource type="PackedScene" uid="uid://8naw6kagkrra" path="res://Scenes/PaintBlobs/base_paint_blob.tscn" id="1_wa2i6"]
+[ext_resource type="Texture2D" uid="uid://cf8ps6spgg4np" path="res://Assets/Aseprite/PaintBlobs/RedPaintBlob.png" id="2_wbpbk"]
+
+[node name="RedPaintBlob" instance=ExtResource("1_wa2i6")]
+texture = ExtResource("2_wbpbk")
