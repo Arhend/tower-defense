@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cfwbn1expd5ho"]
+[gd_scene load_steps=7 format=3 uid="uid://cfwbn1expd5ho"]
 
 [ext_resource type="Script" uid="uid://clkbtbldnjkhh" path="res://Scenes/Towers/base_tower.gd" id="1_yji8t"]
 [ext_resource type="PackedScene" uid="uid://c6hijlinaypil" path="res://Scenes/Towers/Projectiles/base_projectile.tscn" id="2_jviep"]
@@ -8,6 +8,9 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m8eit"]
 radius = 90.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8u7oj"]
+size = Vector2(34, 55)
 
 [node name="BaseTower" type="Area2D"]
 z_index = 1
@@ -32,7 +35,13 @@ shape = SubResource("CircleShape2D_m8eit")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
-[connection signal="input_event" from="." to="." method="_on_input_event"]
+[node name="ClickableArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickableArea"]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_8u7oj")
+
 [connection signal="area_entered" from="AttackRange" to="." method="_on_attack_range_area_entered"]
 [connection signal="area_exited" from="AttackRange" to="." method="_on_attack_range_area_exited"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="input_event" from="ClickableArea" to="." method="_on_clickable_area_input_event"]

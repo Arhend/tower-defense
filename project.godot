@@ -21,6 +21,7 @@ SceneManager="*res://Singletons/scene_manager.gd"
 SignalManager="*res://Singletons/signal_manager.gd"
 UuidManager="*res://Singletons/uuid_manager.gd"
 LoggerManager="*res://Singletons/logger_manager.gd"
+SettingsManager="*res://Singletons/settings_manager.gd"
 
 [display]
 

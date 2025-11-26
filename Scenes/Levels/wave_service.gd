@@ -15,6 +15,7 @@ var active_enemies := 0
 var auto_start_waves := false
 
 func _ready():
+    auto_start_waves = SettingsManager.autostart_waves
     SignalManager.on_enemy_deactivated.connect(_on_enemy_deactivated)
     SignalManager.on_start_next_wave.connect(_on_start_next_wave)
     SignalManager.on_toggle_autostart_waves.connect(_on_toggle_autostart_waves)
@@ -75,5 +76,5 @@ func _on_start_next_wave():
         
     start_wave()
 
-func _on_toggle_autostart_waves():
-    auto_start_waves = !auto_start_waves
+func _on_toggle_autostart_waves(toggle: bool):
+    auto_start_waves = toggle
