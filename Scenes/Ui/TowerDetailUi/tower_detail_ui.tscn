@@ -7,7 +7,7 @@
 size = Vector2(127, 127)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2qb18"]
-size = Vector2(80, 80)
+size = Vector2(32, 32)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_gf102"]
 size = Vector2(32, 32)
@@ -65,23 +65,38 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 text = "FIRST"
 
-[node name="UpgradeTexture1" type="TextureRect" parent="Grid/ContentRows"]
+[node name="TowerColorLabel" type="Label" parent="Grid/ContentRows"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 6
-texture = SubResource("PlaceholderTexture2D_2qb18")
+size_flags_vertical = 10
+text = "Unpainted"
 
-[node name="UpgradeTexture2" type="TextureRect" parent="Grid/ContentRows"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Grid/ContentRows"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 6
-texture = SubResource("PlaceholderTexture2D_2qb18")
+size_flags_vertical = 3
 
-[node name="UpgradeTexture3" type="TextureRect" parent="Grid/ContentRows"]
+[node name="RedPaintButton" type="TextureButton" parent="Grid/ContentRows/HBoxContainer"]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+texture_normal = SubResource("PlaceholderTexture2D_2qb18")
+
+[node name="BluePaintButton" type="TextureButton" parent="Grid/ContentRows/HBoxContainer"]
+modulate = Color(0, 0, 1, 1)
+layout_mode = 2
+texture_normal = SubResource("PlaceholderTexture2D_2qb18")
+
+[node name="GreenPaintButton" type="TextureButton" parent="Grid/ContentRows/HBoxContainer"]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+texture_normal = SubResource("PlaceholderTexture2D_2qb18")
+
+[node name="UpgradeButton" type="Button" parent="Grid/ContentRows"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-texture = SubResource("PlaceholderTexture2D_2qb18")
+text = "Upgrade"
 
 [node name="BottomContentRow" type="HBoxContainer" parent="Grid/ContentRows"]
 layout_mode = 2
@@ -116,4 +131,7 @@ layout_mode = 2
 
 [connection signal="pressed" from="Grid/TopRow/HideDetailsButton" to="." method="_on_hide_details_button_pressed"]
 [connection signal="pressed" from="Grid/ContentRows/TogglePriorityButton" to="." method="_on_toggle_priority_button_pressed"]
+[connection signal="pressed" from="Grid/ContentRows/HBoxContainer/RedPaintButton" to="." method="_on_red_paint_button_pressed"]
+[connection signal="pressed" from="Grid/ContentRows/HBoxContainer/BluePaintButton" to="." method="_on_blue_paint_button_pressed"]
+[connection signal="pressed" from="Grid/ContentRows/HBoxContainer/GreenPaintButton" to="." method="_on_green_paint_button_pressed"]
 [connection signal="pressed" from="Grid/ContentRows/SellButton" to="." method="_on_sell_button_pressed"]

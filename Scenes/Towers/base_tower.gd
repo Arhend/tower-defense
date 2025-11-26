@@ -2,10 +2,22 @@ extends Area2D
 
 class_name BaseTower
 
+const MAX_LEVEL: int = 5
+
 enum TargetPriorities {
     LAST,
     FIRST
 }
+
+enum TowerColor {
+    UNPAINTED,
+    RED,
+    GREEN,
+    BLUE,
+}
+
+@export var tower_color: TowerColor = TowerColor.UNPAINTED
+@export var tower_level: int = 0
 
 @export var tower_stats: TowerStats
 
@@ -23,12 +35,12 @@ func _ready():
     collision_shape_2d.shape.radius = tower_stats.attack_range
     SignalManager.on_enemy_deactivated.connect(_on_enemy_deactivated)
     attack_timer.wait_time = tower_stats.attack_speed
-    
+
     if projectile_stats == null:
         push_error("Projectile Stats not set for tower")
     if tower_stats == null:
         push_error("Tower Stats not set for tower")
-        
+            
 func try_attack():
     # Only attack if cooldown ready AND we have a target
     if can_attack and enemies_in_range.size() > 0:
@@ -64,6 +76,19 @@ func register_damage(enemy: BaseEnemy):
 func toggle_priority() -> TargetPriorities:
     targeting_priority = (targeting_priority + 1) % TargetPriorities.size()
     return targeting_priority
+
+func set_tower_color(color: TowerColor):
+    if tower_color == TowerColor.UNPAINTED:
+        tower_color = color
+        LoggerManager.debug("Setting tower paint %s color to: %s" % [name, str(color)])
+    else:
+        LoggerManager.debug("Tower already painted.")
+        
+func upgrade_tower_level():
+    tower_level += 1
+
+func get_tower_color() -> String:
+    return TowerColor.keys()[tower_color].capitalize()
     
 func _on_attack_range_area_entered(area):
     if area.is_in_group("enemy") and area.in_use:

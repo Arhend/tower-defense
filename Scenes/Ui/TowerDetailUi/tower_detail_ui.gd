@@ -1,8 +1,11 @@
 extends Panel
 
+const TowerColor = preload("res://Scenes/Towers/base_tower.gd").TowerColor
+
 @onready var toggle_priority_button = $Grid/ContentRows/TogglePriorityButton
 @onready var damage_count_label = $Grid/ContentRows/BottomContentRow/DamageCountLabel
 @onready var close_tower_detail_button = $"../CloseTowerDetailButton"
+@onready var tower_color_label = $Grid/ContentRows/TowerColorLabel
 
 var tower: BaseTower
 
@@ -35,6 +38,9 @@ func _on_tower_clicked(clicked_tower: BaseTower):
     tower = clicked_tower
     update_priority_text()
     update_damage_count_text()
+    tower_color_label.text = tower.get_tower_color()
+    
+    LoggerManager.debug("Tower %s Color: %s" % [tower.name, tower.get_tower_color()])
     show()
     close_tower_detail_button.show()
 
@@ -51,3 +57,16 @@ func _on_tower_damage_dealt(registered_tower: BaseTower):
 
 func _on_close_tower_detail_button_pressed():
     hide_details()
+
+
+func _on_red_paint_button_pressed():
+    tower.set_tower_color(TowerColor.RED)
+    tower_color_label.text = tower.get_tower_color()
+
+func _on_blue_paint_button_pressed():
+    tower.set_tower_color(TowerColor.BLUE)
+    tower_color_label.text = tower.get_tower_color()
+    
+func _on_green_paint_button_pressed():
+    tower.set_tower_color(TowerColor.GREEN)
+    tower_color_label.text = tower.get_tower_color()

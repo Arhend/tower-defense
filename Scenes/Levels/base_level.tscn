@@ -119,7 +119,6 @@ tile_map_data = PackedByteArray("AADr//T/AAAAAAAAAADr//X/AAAAAAAAAADr//b/AAAAAAA
 tile_set = SubResource("TileSet_30ow2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.6, 1.6)
 
 [node name="Background" type="ColorRect" parent="."]
 visible = false
@@ -307,7 +306,6 @@ tower_name = "Roller"
 texture = ExtResource("31_uemjo")
 
 [node name="TowerDetailUi" parent="LevelUI" instance=ExtResource("28_vk7aq")]
-visible = false
 
 [node name="PauseMenuUi" parent="LevelUI" instance=ExtResource("36_t8lfh")]
 visible = false
