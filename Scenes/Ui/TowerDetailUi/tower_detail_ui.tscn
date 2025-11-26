@@ -2,14 +2,12 @@
 
 [ext_resource type="Script" uid="uid://saa68dyx8t41" path="res://Scenes/Ui/TowerDetailUi/tower_detail_ui.gd" id="1_40msb"]
 [ext_resource type="Theme" uid="uid://duabvow4i86km" path="res://Resources/Themes/Base/base_theme.tres" id="1_qg5uv"]
+[ext_resource type="Texture2D" uid="uid://b2g71vxbbhy1k" path="res://Assets/Aseprite/Ui/Skull2x.png" id="3_2qb18"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qg5uv"]
 size = Vector2(127, 127)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2qb18"]
-size = Vector2(32, 32)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_gf102"]
 size = Vector2(32, 32)
 
 [node name="TowerDetailUi" type="Panel"]
@@ -95,8 +93,39 @@ texture_normal = SubResource("PlaceholderTexture2D_2qb18")
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 6
+size_flags_vertical = 10
 text = "Upgrade"
+
+[node name="UpgradeIconsHbox" type="HBoxContainer" parent="Grid/ContentRows"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="1" type="ColorRect" parent="Grid/ContentRows/UpgradeIconsHbox"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="2" type="ColorRect" parent="Grid/ContentRows/UpgradeIconsHbox"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="3" type="ColorRect" parent="Grid/ContentRows/UpgradeIconsHbox"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="4" type="ColorRect" parent="Grid/ContentRows/UpgradeIconsHbox"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="5" type="ColorRect" parent="Grid/ContentRows/UpgradeIconsHbox"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="BottomContentRow" type="HBoxContainer" parent="Grid/ContentRows"]
 layout_mode = 2
@@ -107,13 +136,14 @@ size_flags_vertical = 8
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = SubResource("PlaceholderTexture2D_gf102")
+texture = ExtResource("3_2qb18")
 
 [node name="Spacer" type="Control" parent="Grid/ContentRows/BottomContentRow"]
 custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
 
 [node name="DamageCountLabel" type="Label" parent="Grid/ContentRows/BottomContentRow"]
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "0"
@@ -134,4 +164,5 @@ layout_mode = 2
 [connection signal="pressed" from="Grid/ContentRows/HBoxContainer/RedPaintButton" to="." method="_on_red_paint_button_pressed"]
 [connection signal="pressed" from="Grid/ContentRows/HBoxContainer/BluePaintButton" to="." method="_on_blue_paint_button_pressed"]
 [connection signal="pressed" from="Grid/ContentRows/HBoxContainer/GreenPaintButton" to="." method="_on_green_paint_button_pressed"]
+[connection signal="pressed" from="Grid/ContentRows/UpgradeButton" to="." method="_on_upgrade_button_pressed"]
 [connection signal="pressed" from="Grid/ContentRows/SellButton" to="." method="_on_sell_button_pressed"]

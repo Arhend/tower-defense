@@ -1,11 +1,16 @@
 extends Panel
 
 const TowerColor = preload("res://Scenes/Towers/base_tower.gd").TowerColor
+const NO_LEVEL: Color = Color.BLACK
+const HAS_LEVEL: Color = Color.WHITE
 
 @onready var toggle_priority_button = $Grid/ContentRows/TogglePriorityButton
 @onready var damage_count_label = $Grid/ContentRows/BottomContentRow/DamageCountLabel
 @onready var close_tower_detail_button = $"../CloseTowerDetailButton"
 @onready var tower_color_label = $Grid/ContentRows/TowerColorLabel
+@onready var upgrade_button = $Grid/ContentRows/UpgradeButton
+@onready var upgrade_icons_hbox = $Grid/ContentRows/UpgradeIconsHbox
+
 
 var tower: BaseTower
 
@@ -23,6 +28,16 @@ func update_priority_text():
     var priority_string = BaseTower.TargetPriorities.keys()[tower.targeting_priority]
     toggle_priority_button.text = priority_string.capitalize()
     
+func refresh_upgrade_icons():
+    var children = upgrade_icons_hbox.get_children()
+    var tower_level = tower.tower_level
+
+    for i in range(children.size()):
+        if i < tower_level:
+            children[i].modulate = HAS_LEVEL
+        else:
+            children[i].modulate = NO_LEVEL
+    
 func update_damage_count_text():
     var num_str = str(tower.tower_stats.damage_count)
     var regex = RegEx.new()
@@ -39,6 +54,13 @@ func _on_tower_clicked(clicked_tower: BaseTower):
     update_priority_text()
     update_damage_count_text()
     tower_color_label.text = tower.get_tower_color()
+    
+    if tower.can_upgrade_tower():
+        upgrade_button.disabled = false
+    else:
+        upgrade_button.disabled = true
+            
+    refresh_upgrade_icons()
     
     LoggerManager.debug("Tower %s Color: %s" % [tower.name, tower.get_tower_color()])
     show()
@@ -70,3 +92,9 @@ func _on_blue_paint_button_pressed():
 func _on_green_paint_button_pressed():
     tower.set_tower_color(TowerColor.GREEN)
     tower_color_label.text = tower.get_tower_color()
+
+
+func _on_upgrade_button_pressed():
+    # TODO: Add logic to check if we can upgrade
+    tower.upgrade_tower_level()
+    refresh_upgrade_icons()

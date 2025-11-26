@@ -91,6 +91,9 @@ func upgrade_tower_level():
 func get_tower_color() -> String:
     return TowerColor.keys()[tower_color].capitalize()
 
+func can_upgrade_tower() -> bool:
+    return tower_level <= MAX_LEVEL
+    
 func _on_attack_range_area_entered(area):
     if area.is_in_group("enemy") and area.in_use:
         enemies_in_range.append(area)
