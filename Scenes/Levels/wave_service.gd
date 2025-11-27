@@ -40,7 +40,6 @@ func spawn_next_enemy():
         if spawn_index < spawn_queue.size():
             spawn_timer.start(spawn_queue[spawn_index].spawn_delay)
 
-
 func wave_finished():
     LoggerManager.debug("Wave finished")
     spawn_index = 0

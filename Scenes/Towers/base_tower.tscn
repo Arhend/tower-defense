@@ -10,7 +10,7 @@
 radius = 90.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8u7oj"]
-size = Vector2(34, 55)
+size = Vector2(14, 16)
 
 [node name="BaseTower" type="Area2D"]
 z_index = 1

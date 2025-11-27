@@ -3,9 +3,10 @@ extends Node2D
 class_name TowerPurchaseService
 
 const JUST_PLACED: String = "_just_placed"
+const GRID_SIZE := 16
 
 const BRUSH_TOWER = preload("uid://jtug3iwvv4pg")
-const BRUSH_TOWER_TEXTURE = preload("uid://t8utk3qwnr1c")
+const BRUSH_TOWER_TEXTURE = preload("uid://dwe8qeom1vpt6")
 
 const ROLLER_TOWER = preload("uid://bucak3nuft56r")
 const ROLLER_TOWER_TEXTURE = preload("uid://bedqxe1pfye1v")
@@ -31,13 +32,14 @@ func _input(event):
 
 func _process(_delta):
     if selected_tower:
-        selected_tower_area.global_position = get_global_mouse_position()
+        selected_tower_area.global_position = snap_to_grid(get_global_mouse_position())
 
 # Public methods
 func activate(screen_position: Vector2):
     LoggerManager.debug("Placing %s" % selected_tower)
     var tower_instance = selected_tower.instantiate()
-    tower_instance.global_position = get_viewport().get_canvas_transform().affine_inverse() * screen_position
+    var world_pos = get_viewport().get_canvas_transform().affine_inverse() * screen_position
+    tower_instance.global_position = snap_to_grid(world_pos)
     tower_instance.set_meta(JUST_PLACED, true)
     tower_instance.name = UuidManager.v4()
     add_child(tower_instance)
@@ -62,6 +64,9 @@ func get_attack_radius(tower_scene: PackedScene) -> int:
     temp_tower.queue_free()
 
     return tower_range
+
+func snap_to_grid(pos: Vector2) -> Vector2:
+    return (pos / GRID_SIZE).floor() * GRID_SIZE + Vector2(GRID_SIZE / 2.0, GRID_SIZE / 2.0)
 
 # Helper methods
 func enable_placement():

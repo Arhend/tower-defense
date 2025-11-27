@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://dqnovi8crfkd7" path="res://Scenes/Levels/debug_service.gd" id="5_30ow2"]
 [ext_resource type="Script" uid="uid://djxb7qbvtcs1k" path="res://Scenes/Levels/life_management_service.gd" id="6_iemmg"]
 [ext_resource type="Script" uid="uid://p68j6fld5d4b" path="res://Scenes/Levels/tower_purchase_service.gd" id="7_xghcx"]
-[ext_resource type="Texture2D" uid="uid://t8utk3qwnr1c" path="res://Assets/Aseprite/Towers/BrushTowerV2-2x.png" id="8_fwp4i"]
+[ext_resource type="Texture2D" uid="uid://dwe8qeom1vpt6" path="res://Assets/Aseprite/Towers/BrushTowerV3_1x.png" id="8_fwp4i"]
 [ext_resource type="Script" uid="uid://djp760hnpubd0" path="res://Scenes/Levels/wave_service.gd" id="8_xghcx"]
 [ext_resource type="Script" uid="uid://btsrsskoiduuy" path="res://Resources/Waves/wave_data.gd" id="9_7ik2y"]
 [ext_resource type="Script" uid="uid://df3ab1bopu4qu" path="res://Scenes/Levels/gold_service.gd" id="9_71eip"]
@@ -90,7 +90,7 @@ navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_lai3q")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xghcx"]
-size = Vector2(36, 20)
+size = Vector2(14, 14)
 
 [sub_resource type="SphereMesh" id="SphereMesh_67sl2"]
 
@@ -119,6 +119,7 @@ tile_map_data = PackedByteArray("AADr//T/AAAAAAAAAADr//X/AAAAAAAAAADr//b/AAAAAAA
 tile_set = SubResource("TileSet_30ow2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
 
 [node name="Background" type="ColorRect" parent="."]
 visible = false
@@ -162,12 +163,10 @@ z_index = 1
 texture = ExtResource("8_fwp4i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Services/TowerPurchaseService/SelectedTowerArea"]
-position = Vector2(0, 23)
 shape = SubResource("RectangleShape2D_xghcx")
 
 [node name="SelectedTowerAttackRadius" type="MeshInstance2D" parent="Services/TowerPurchaseService/SelectedTowerArea"]
 modulate = Color(0.27022192, 0.27022192, 0.2702219, 0.19607843)
-position = Vector2(0, 10)
 scale = Vector2(42, 42)
 mesh = SubResource("SphereMesh_67sl2")
 

@@ -65,11 +65,20 @@ func spawn_projectile(target: BaseEnemy):
         proj.global_position = global_position
         proj.look_at(target.global_position)
 
-        proj.set_projectile_stats(projectile_stats)
+        var scaled_stats = get_scaled_projectile_stats()
+        proj.set_projectile_stats(scaled_stats)
         proj.owner_tower = self
         proj.paint_color = tower_color
         get_tree().root.call_deferred("add_child", proj)
         
+func get_scaled_projectile_stats() -> ProjectileStats:
+    var scaled_stats = projectile_stats.duplicate()
+    
+    # TODO: Add better damage scaling per level
+    scaled_stats.damage = projectile_stats.damage + (tower_level * 5)
+    
+    return scaled_stats
+
 func register_damage(enemy: BaseEnemy):
     tower_stats.damage_count += 1
     SignalManager.on_tower_damage_dealt.emit(self)
