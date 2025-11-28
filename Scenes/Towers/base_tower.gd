@@ -97,11 +97,20 @@ func set_tower_color(color: TowerColor):
 func upgrade_tower_level():
     tower_level += 1
 
+func is_max_level() -> bool:
+    return tower_level >= MAX_LEVEL
+
+func get_upgrade_cost() -> int:
+    return (tower_stats.cost * 1.5) * (tower_level + 1)
+
 func get_tower_color() -> String:
     return TowerColor.keys()[tower_color].capitalize()
 
-func can_upgrade_tower() -> bool:
-    return tower_level <= MAX_LEVEL
+func can_upgrade_tower(gold_service: GoldService) -> bool:
+    if tower_level <= MAX_LEVEL and gold_service.get_gold_amount() >= get_upgrade_cost():
+        return true
+    else:
+        return false
     
 func _on_attack_range_area_entered(area):
     if area.is_in_group("enemy") and area.in_use:

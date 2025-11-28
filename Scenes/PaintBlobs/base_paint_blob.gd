@@ -1,5 +1,8 @@
 extends Sprite2D
 
+func _ready():
+    randomize()
+    rotation = randf_range(0, 360)
 
 func _on_delete_timer_timeout():
     queue_free()

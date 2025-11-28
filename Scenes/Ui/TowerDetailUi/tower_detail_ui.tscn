@@ -89,43 +89,58 @@ modulate = Color(0, 1, 0, 1)
 layout_mode = 2
 texture_normal = SubResource("PlaceholderTexture2D_2qb18")
 
-[node name="UpgradeButton" type="Button" parent="Grid/ContentRows"]
+[node name="UpgradeVbox" type="VBoxContainer" parent="Grid/ContentRows"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="UpgradePriceLabel" type="Label" parent="Grid/ContentRows/UpgradeVbox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "000"
+
+[node name="UpgradeButton" type="Button" parent="Grid/ContentRows/UpgradeVbox"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 10
+size_flags_vertical = 0
 text = "Upgrade"
 
-[node name="UpgradeIconsHbox" type="HBoxContainer" parent="Grid/ContentRows"]
+[node name="UpgradeIconsHbox" type="HBoxContainer" parent="Grid/ContentRows/UpgradeVbox"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 2
+size_flags_vertical = 0
 theme_override_constants/separation = 8
 
-[node name="1" type="ColorRect" parent="Grid/ContentRows/UpgradeIconsHbox"]
+[node name="1" type="ColorRect" parent="Grid/ContentRows/UpgradeVbox/UpgradeIconsHbox"]
 custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="2" type="ColorRect" parent="Grid/ContentRows/UpgradeIconsHbox"]
+[node name="2" type="ColorRect" parent="Grid/ContentRows/UpgradeVbox/UpgradeIconsHbox"]
 custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="3" type="ColorRect" parent="Grid/ContentRows/UpgradeIconsHbox"]
+[node name="3" type="ColorRect" parent="Grid/ContentRows/UpgradeVbox/UpgradeIconsHbox"]
 custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="4" type="ColorRect" parent="Grid/ContentRows/UpgradeIconsHbox"]
+[node name="4" type="ColorRect" parent="Grid/ContentRows/UpgradeVbox/UpgradeIconsHbox"]
 custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="5" type="ColorRect" parent="Grid/ContentRows/UpgradeIconsHbox"]
+[node name="5" type="ColorRect" parent="Grid/ContentRows/UpgradeVbox/UpgradeIconsHbox"]
 custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
 size_flags_horizontal = 4
+
+[node name="Spacer2" type="Control" parent="Grid/ContentRows"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
 
 [node name="BottomContentRow" type="HBoxContainer" parent="Grid/ContentRows"]
 layout_mode = 2
@@ -164,5 +179,5 @@ layout_mode = 2
 [connection signal="pressed" from="Grid/ContentRows/HBoxContainer/RedPaintButton" to="." method="_on_red_paint_button_pressed"]
 [connection signal="pressed" from="Grid/ContentRows/HBoxContainer/BluePaintButton" to="." method="_on_blue_paint_button_pressed"]
 [connection signal="pressed" from="Grid/ContentRows/HBoxContainer/GreenPaintButton" to="." method="_on_green_paint_button_pressed"]
-[connection signal="pressed" from="Grid/ContentRows/UpgradeButton" to="." method="_on_upgrade_button_pressed"]
+[connection signal="pressed" from="Grid/ContentRows/UpgradeVbox/UpgradeButton" to="." method="_on_upgrade_button_pressed"]
 [connection signal="pressed" from="Grid/ContentRows/SellButton" to="." method="_on_sell_button_pressed"]
