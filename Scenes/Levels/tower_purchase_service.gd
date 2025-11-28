@@ -94,7 +94,10 @@ func set_selected(TOWER: PackedScene, TEXTURE: CompressedTexture2D):
         selected_tower_attack_radius.show()
     else:
         LoggerManager.debug("Not enough gold for tower.")
-        
+       
+func is_placing() -> bool:
+    return selected_tower != null
+     
 # Signal callbacks
 func _on_brush_tower_button_pressed():
     set_selected(BRUSH_TOWER, BRUSH_TOWER_TEXTURE)

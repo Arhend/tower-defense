@@ -10,7 +10,7 @@ const HAS_LEVEL: Color = Color.WHITE
 @onready var tower_color_label = $Grid/ContentRows/TowerColorLabel
 @onready var upgrade_button = $Grid/ContentRows/UpgradeButton
 @onready var upgrade_icons_hbox = $Grid/ContentRows/UpgradeIconsHbox
-
+@onready var tower_purchase_service = $"../../Services/TowerPurchaseService"
 
 var tower: BaseTower
 
@@ -50,6 +50,9 @@ func _on_sell_button_pressed():
     hide_details()
     
 func _on_tower_clicked(clicked_tower: BaseTower):
+    if tower_purchase_service.is_placing():
+        return
+    
     tower = clicked_tower
     update_priority_text()
     update_damage_count_text()
