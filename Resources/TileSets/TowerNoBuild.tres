@@ -1,0 +1,13 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://b30t0r1u0vb5k"]
+
+[ext_resource type="Texture2D" uid="uid://ufmjkkq2cl6w" path="res://Assets/Aseprite/Terrain/TowerNoBuild.png" id="1_jwk43"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sl4tb"]
+texture = ExtResource("1_jwk43")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[resource]
+physics_layer_0/collision_layer = 4
+physics_layer_0/collision_mask = 0
+sources/1 = SubResource("TileSetAtlasSource_sl4tb")
