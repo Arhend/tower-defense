@@ -6,10 +6,10 @@ const JUST_PLACED: String = "_just_placed"
 const GRID_SIZE := 16
 
 const BRUSH_TOWER = preload("uid://jtug3iwvv4pg")
-const BRUSH_TOWER_TEXTURE = preload("uid://dwe8qeom1vpt6")
+const BRUSH_TOWER_TEXTURE = preload("uid://chhv0w14ftmqa")
 
 const ROLLER_TOWER = preload("uid://bucak3nuft56r")
-const ROLLER_TOWER_TEXTURE = preload("uid://bedqxe1pfye1v")
+const ROLLER_TOWER_TEXTURE = preload("uid://dkuapx8njsker")
 
 var selected_tower: PackedScene = null
 var can_place := true

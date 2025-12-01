@@ -16,5 +16,7 @@ func _ready():
 func _on_gold_updated(total_gold: int):
     if total_gold < tower_stats.cost:
         disabled = true
+        tower_texture.modulate = Color(1, 1, 1, .5)
     else:
         disabled = false
+        tower_texture.modulate = Color(1, 1, 1, 1)

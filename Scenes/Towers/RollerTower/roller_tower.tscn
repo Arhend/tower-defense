@@ -1,11 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bucak3nuft56r"]
+[gd_scene load_steps=9 format=3 uid="uid://bucak3nuft56r"]
 
 [ext_resource type="PackedScene" uid="uid://cfwbn1expd5ho" path="res://Scenes/Towers/base_tower.tscn" id="1_tvyd3"]
 [ext_resource type="Script" uid="uid://bdkdtom4cr3k5" path="res://Scenes/Towers/RollerTower/roller_tower.gd" id="2_2qkjq"]
 [ext_resource type="Resource" uid="uid://ckna57nrkamxx" path="res://Resources/TowerStats/roller_tower_stats.tres" id="3_l8am7"]
 [ext_resource type="PackedScene" uid="uid://dihskt62w65r8" path="res://Scenes/Towers/Projectiles/RollerProjectile/roller_projectile.tscn" id="3_movn7"]
-[ext_resource type="Texture2D" uid="uid://bedqxe1pfye1v" path="res://Assets/Dev/purple16x16.png" id="3_o0io1"]
 [ext_resource type="Script" uid="uid://q2xyw2do3xnp" path="res://Resources/ProjectileStats/projectile_stats.gd" id="4_ncgxr"]
+[ext_resource type="Texture2D" uid="uid://dkuapx8njsker" path="res://Assets/Aseprite/Towers/RollerTower1x.png" id="6_l8am7"]
 
 [sub_resource type="Resource" id="Resource_l8am7"]
 script = ExtResource("4_ncgxr")
@@ -13,11 +13,21 @@ damage = 5
 pierce_limit = 10
 metadata/_custom_type_script = "uid://q2xyw2do3xnp"
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l8am7"]
+size = Vector2(14, 16)
+
 [node name="RollerTower" instance=ExtResource("1_tvyd3")]
 script = ExtResource("2_2qkjq")
 tower_stats = ExtResource("3_l8am7")
 projectile = ExtResource("3_movn7")
 projectile_stats = SubResource("Resource_l8am7")
 
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-0.5, 0)
+
 [node name="Sprite2D" parent="." index="1"]
-texture = ExtResource("3_o0io1")
+texture = ExtResource("6_l8am7")
+
+[node name="CollisionShape2D" parent="ClickableArea" index="0"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_l8am7")

@@ -13,6 +13,7 @@ const HAS_LEVEL: Color = Color.WHITE
 @onready var upgrade_button = $Grid/ContentRows/UpgradeVbox/UpgradeButton
 @onready var upgrade_icons_hbox = $Grid/ContentRows/UpgradeVbox/UpgradeIconsHbox
 @onready var gold_service = $"../../Services/GoldService"
+@onready var tower_texture = $Grid/ContentRows/TowerTexture
 
 var tower: BaseTower
 
@@ -71,6 +72,7 @@ func _on_tower_clicked(clicked_tower: BaseTower):
     else:
         upgrade_button.disabled = true
         
+    tower_texture.texture = tower.get_tower_texture()
     refresh_upgrade_icons()
     
     LoggerManager.debug("Tower %s Color: %s" % [tower.name, tower.get_tower_color()])

@@ -1,12 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://bo7bji3b3i0j6"]
+[gd_scene load_steps=5 format=3 uid="uid://bo7bji3b3i0j6"]
 
 [ext_resource type="PackedScene" uid="uid://c6hijlinaypil" path="res://Scenes/Towers/Projectiles/base_projectile.tscn" id="1_k3ade"]
 [ext_resource type="Script" uid="uid://bxoeca6krswne" path="res://Scenes/Towers/Projectiles/BrushProjectile/brush_projectile.gd" id="2_ncx6q"]
-[ext_resource type="Texture2D" uid="uid://vyjpl0e4ad81" path="res://Assets/Aseprite/Projectiles/BrushProjectile1x.png" id="3_mwmyu"]
+[ext_resource type="Texture2D" uid="uid://df08wi1vluc1u" path="res://Assets/Aseprite/Projectiles/BrushProjectileV3.png" id="3_mwmyu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mwmyu"]
+radius = 6.0
 
 [node name="BrushProjectile" instance=ExtResource("1_k3ade")]
 script = ExtResource("2_ncx6q")
 speed = 250
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_mwmyu")
 
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("3_mwmyu")

@@ -26,6 +26,7 @@ enum TowerColor {
 
 @onready var collision_shape_2d = $AttackRange/CollisionShape2D
 @onready var attack_timer = $AttackTimer
+@onready var sprite_2d = $Sprite2D
 
 var enemies_in_range: Array[BaseEnemy]
 var can_attack := true
@@ -102,6 +103,10 @@ func is_max_level() -> bool:
 
 func get_upgrade_cost() -> int:
     return (tower_stats.cost * 1.5) * (tower_level + 1)
+
+func get_tower_texture() -> Texture2D:
+    push_error("Must override in inherited tower")
+    return null
 
 func get_tower_color() -> String:
     return TowerColor.keys()[tower_color].capitalize()
