@@ -1,8 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0o6176v7i4t3"]
+[gd_scene load_steps=6 format=3 uid="uid://d0o6176v7i4t3"]
 
-[ext_resource type="Theme" uid="uid://duabvow4i86km" path="res://Resources/Themes/Base/base_theme.tres" id="1_cue0k"]
 [ext_resource type="Script" uid="uid://43er84gk3dsk" path="res://Scenes/Ui/PauseMenuUi/pause_menu_ui.gd" id="1_pgwm6"]
 [ext_resource type="PackedScene" uid="uid://cvuc7ocfri66r" path="res://Scenes/Ui/AutoStartWaveUi/auto_start_wave_ui.tscn" id="2_g67b5"]
+[ext_resource type="Theme" uid="uid://chkypy35uknpm" path="res://Resources/Themes/Base/pause_menu_theme.tres" id="4_jtf7s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cue0k"]
+bg_color = Color(0.039215688, 0.023529412, 0.07058824, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="Theme" id="Theme_jtf7s"]
+Panel/styles/panel = SubResource("StyleBoxFlat_cue0k")
 
 [node name="PauseMenuUi" type="ColorRect"]
 anchors_preset = 15
@@ -10,6 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("4_jtf7s")
 color = Color(1, 1, 1, 0)
 script = ExtResource("1_pgwm6")
 
@@ -23,7 +34,6 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_cue0k")
 
 [node name="ClosePauseMenuButton" type="Button" parent="Background"]
 custom_minimum_size = Vector2(32, 32)
@@ -46,6 +56,7 @@ offset_left = -50.0
 offset_right = 50.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 16
 
 [node name="Title" type="Label" parent="Background/VBoxContainer"]
 layout_mode = 2
@@ -57,4 +68,78 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 
+[node name="RestartLevelButton" type="Button" parent="Background/VBoxContainer"]
+layout_mode = 2
+text = "Restart Map"
+
+[node name="ExitToMainMenuButton" type="Button" parent="Background/VBoxContainer"]
+layout_mode = 2
+text = "Exit to Menu"
+
+[node name="Spacer" type="Control" parent="Background/VBoxContainer"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="ConfirmPanel" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(375, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_jtf7s")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ConfirmPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Spacer2" type="Control" parent="ConfirmPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="ConfirmLabel" type="Label" parent="ConfirmPanel/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Are you sure?"
+horizontal_alignment = 1
+autowrap_mode = 2
+justification_flags = 162
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ConfirmPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_constants/separation = 32
+
+[node name="ConfirmButton" type="Button" parent="ConfirmPanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+text = "Confirm"
+
+[node name="CancelButton" type="Button" parent="ConfirmPanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+text = "Cancel"
+
+[node name="Spacer" type="Control" parent="ConfirmPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
 [connection signal="pressed" from="Background/ClosePauseMenuButton" to="." method="_on_close_pause_menu_button_pressed"]
+[connection signal="pressed" from="Background/VBoxContainer/RestartLevelButton" to="." method="_on_restart_level_button_pressed"]
+[connection signal="pressed" from="Background/VBoxContainer/ExitToMainMenuButton" to="." method="_on_exit_to_main_menu_button_pressed"]
+[connection signal="pressed" from="ConfirmPanel/VBoxContainer/HBoxContainer/ConfirmButton" to="." method="_on_confirm_button_pressed"]
+[connection signal="pressed" from="ConfirmPanel/VBoxContainer/HBoxContainer/CancelButton" to="." method="_on_cancel_button_pressed"]

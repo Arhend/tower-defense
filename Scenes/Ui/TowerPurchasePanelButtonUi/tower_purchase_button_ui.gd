@@ -2,6 +2,7 @@ extends Button
 
 @onready var tower_texture = $TowerTexture
 @onready var tower_name_label = $TowerNameLabel
+@onready var tower_cost_label = $TowerCostLabel
 
 @export var tower_stats: TowerStats
 @export var tower_name: String
@@ -10,7 +11,8 @@ extends Button
 func _ready():
     tower_name_label.text = tower_name
     tower_texture.texture = texture
-
+    tower_cost_label.text = str(tower_stats.cost)
+    
     SignalManager.on_gold_updated.connect(_on_gold_updated)
     
 func _on_gold_updated(total_gold: int):

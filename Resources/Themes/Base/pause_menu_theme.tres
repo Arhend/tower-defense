@@ -1,0 +1,68 @@
+[gd_resource type="Theme" load_steps=14 format=3 uid="uid://chkypy35uknpm"]
+
+[ext_resource type="FontFile" uid="uid://c3gkkrg7bqdpa" path="res://Assets/Dev/rainyhearts.ttf" id="1_ug6ni"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o4osk"]
+bg_color = Color(0.22745098, 0.47843137, 0.56078434, 0.29803923)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uc6u0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3tm7h"]
+bg_color = Color(0.4836917, 0.19717917, 0.15841359, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tddvn"]
+bg_color = Color(0.54509807, 0.22745098, 0.18431373, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ug6ni"]
+bg_color = Color(0.41242498, 0.16252658, 0.12838581, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tddvn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3tm7h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v6p5f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o4osk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a7oef"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ek1e4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uc6u0"]
+bg_color = Color(0.101960786, 0.05882353, 0.18039216, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[resource]
+default_font = ExtResource("1_ug6ni")
+default_font_size = 32
+Button/styles/disabled = SubResource("StyleBoxFlat_o4osk")
+Button/styles/focus = SubResource("StyleBoxEmpty_uc6u0")
+Button/styles/hover = SubResource("StyleBoxFlat_3tm7h")
+Button/styles/normal = SubResource("StyleBoxFlat_tddvn")
+Button/styles/pressed = SubResource("StyleBoxFlat_ug6ni")
+CheckButton/styles/disabled = SubResource("StyleBoxEmpty_tddvn")
+CheckButton/styles/focus = SubResource("StyleBoxEmpty_3tm7h")
+CheckButton/styles/hover = SubResource("StyleBoxEmpty_v6p5f")
+CheckButton/styles/hover_pressed = SubResource("StyleBoxEmpty_o4osk")
+CheckButton/styles/normal = SubResource("StyleBoxEmpty_a7oef")
+CheckButton/styles/pressed = SubResource("StyleBoxEmpty_ek1e4")
+Panel/styles/panel = SubResource("StyleBoxFlat_uc6u0")

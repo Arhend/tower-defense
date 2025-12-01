@@ -5,14 +5,14 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uc6u0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3tm7h"]
-bg_color = Color(0.14695057, 0.335185, 0.39656034, 1)
+bg_color = Color(0.36692238, 0.14369631, 0.11044336, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tddvn"]
-bg_color = Color(0.22745098, 0.47843137, 0.56078434, 1)
+bg_color = Color(0.54509807, 0.22745098, 0.18431373, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5

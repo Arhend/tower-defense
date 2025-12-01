@@ -33,7 +33,9 @@ func _on_area_entered(area):
         hit_count += 1
         var enemy_health_before = area.health
         area.take_damage(damage)
-        owner_tower.register_damage(area)
+        
+        if owner_tower:
+            owner_tower.register_damage(area)
 
         if hit_count >= projectile_pierce_limit:
             queue_free()

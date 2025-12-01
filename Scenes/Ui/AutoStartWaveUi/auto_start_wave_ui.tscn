@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cvuc7ocfri66r"]
 
-[ext_resource type="Theme" uid="uid://bt22f2eo3xl6f" path="res://Resources/Themes/Base/toggle_button_theme.tres" id="1_0eivw"]
+[ext_resource type="Theme" uid="uid://bt22f2eo3xl6f" path="res://Resources/Themes/Base/autostart_button_theme.tres" id="1_0eivw"]
 [ext_resource type="Script" uid="uid://56plcyeqt6uu" path="res://Scenes/Ui/AutoStartWaveUi/auto_start_wave_ui.gd" id="1_utqv4"]
 
 [node name="AutoStartWaveUi" type="Panel"]

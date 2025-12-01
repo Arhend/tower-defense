@@ -12,3 +12,7 @@ func change_scene(scene_path: String):
         current_scene.queue_free()
     current_scene = new_scene
     get_tree().root.add_child(current_scene)
+
+func reload_current_scene():
+    if current_scene:
+        change_scene(current_scene.scene_file_path)

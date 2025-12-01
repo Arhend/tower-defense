@@ -12,6 +12,18 @@ offset_bottom = 64.0
 script = ExtResource("1_va4u8")
 tower_name = "EMPTY"
 
+[node name="TowerCostLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -27.5
+offset_right = 27.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "00"
+horizontal_alignment = 1
+
 [node name="TowerTexture" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
