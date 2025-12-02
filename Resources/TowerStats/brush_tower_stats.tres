@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_078qk")
-attack_speed = 2.0
+attack_speed = 4.0
 cost = 50
 metadata/_custom_type_script = "uid://bd5ixhvbdh0hu"

@@ -92,6 +92,16 @@ func set_tower_color(color: TowerColor):
     if tower_color == TowerColor.UNPAINTED:
         tower_color = color
         LoggerManager.debug("Setting tower paint %s color to: %s" % [name, str(color)])
+
+        # This expects the sprite to have the frames in the order
+        # of unpainted to RGB
+        match tower_color:
+            TowerColor.RED:
+                sprite_2d.frame = 1
+            TowerColor.GREEN:
+                sprite_2d.frame = 2
+            TowerColor.BLUE:
+                sprite_2d.frame = 3
     else:
         LoggerManager.debug("Tower already painted.")
         

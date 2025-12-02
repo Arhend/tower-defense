@@ -4,9 +4,10 @@ class_name TowerPurchaseService
 
 const JUST_PLACED: String = "_just_placed"
 const GRID_SIZE := 16
+const Z_INDEX_OFFSET := 100
 
 const BRUSH_TOWER = preload("uid://jtug3iwvv4pg")
-const BRUSH_TOWER_TEXTURE = preload("uid://chhv0w14ftmqa")
+const BRUSH_TOWER_TEXTURE = preload("uid://bg2qsbrq5gidy")
 
 const ROLLER_TOWER = preload("uid://bucak3nuft56r")
 const ROLLER_TOWER_TEXTURE = preload("uid://dkuapx8njsker")
@@ -42,6 +43,11 @@ func activate(screen_position: Vector2):
     tower_instance.global_position = snap_to_grid(world_pos)
     tower_instance.set_meta(JUST_PLACED, true)
     tower_instance.name = UuidManager.v4()
+
+    # This is to make sure towers don't overlap if they are
+    # placed beneath each other.
+    tower_instance.z_index = Z_INDEX_OFFSET + int(tower_instance.global_position.y / GRID_SIZE)
+    
     add_child(tower_instance)
 
     SignalManager.on_gold_removed.emit(tower_instance.tower_stats.cost)
@@ -107,7 +113,8 @@ func _on_roller_tower_button_pressed():
     
 func _on_selected_tower_area_area_entered(_area):
     disable_placement()
-
+    #pass
+    
 func _on_selected_tower_area_area_exited(_area):
     enable_placement()
 

@@ -1,19 +1,20 @@
-[gd_scene load_steps=14 format=3 uid="uid://jtug3iwvv4pg"]
+[gd_scene load_steps=15 format=3 uid="uid://jtug3iwvv4pg"]
 
 [ext_resource type="PackedScene" uid="uid://cfwbn1expd5ho" path="res://Scenes/Towers/base_tower.tscn" id="1_qptkl"]
 [ext_resource type="Script" uid="uid://b3g6dd2rjru13" path="res://Scenes/Towers/BrushTower/brush_tower.gd" id="2_0m2c5"]
 [ext_resource type="PackedScene" uid="uid://bo7bji3b3i0j6" path="res://Scenes/Towers/Projectiles/BrushProjectile/brush_projectile.tscn" id="2_s2pvc"]
 [ext_resource type="Resource" uid="uid://ogvk4x1suasd" path="res://Resources/TowerStats/brush_tower_stats.tres" id="3_nfkh2"]
 [ext_resource type="Script" uid="uid://q2xyw2do3xnp" path="res://Resources/ProjectileStats/projectile_stats.gd" id="4_2dwq2"]
-[ext_resource type="Texture2D" uid="uid://chhv0w14ftmqa" path="res://Assets/Aseprite/Towers/BrushTowerV4.png" id="6_uoga2"]
+[ext_resource type="Texture2D" uid="uid://dbxlwfw75o2ix" path="res://Assets/Aseprite/Towers/BrushTower/BrushTowerV3.png" id="6_uoga2"]
 [ext_resource type="Texture2D" uid="uid://c75evea7jhaxp" path="res://Assets/Aseprite/Projectiles/BrushProjectileV2_1x.png" id="7_uoga2"]
+[ext_resource type="Texture2D" uid="uid://b6j1ea35ran2x" path="res://Assets/Aseprite/Misc/CircleShadow_16x16.png" id="8_pgyea"]
 
 [sub_resource type="Resource" id="Resource_nfkh2"]
 script = ExtResource("4_2dwq2")
 metadata/_custom_type_script = "uid://q2xyw2do3xnp"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_62sbr"]
-size = Vector2(12, 16)
+size = Vector2(12, 12)
 
 [sub_resource type="Animation" id="Animation_uoga2"]
 length = 0.001
@@ -102,29 +103,38 @@ tower_stats = ExtResource("3_nfkh2")
 projectile = ExtResource("2_s2pvc")
 projectile_stats = SubResource("Resource_nfkh2")
 
-[node name="CollisionShape2D" parent="." index="0"]
-position = Vector2(0, 0.031152725)
+[node name="ShadowSprite" parent="." index="0"]
+modulate = Color(1, 1, 1, 0.39215687)
+position = Vector2(0, 7)
+scale = Vector2(1, 0.5)
+texture = ExtResource("8_pgyea")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_62sbr")
 
-[node name="Sprite2D" parent="." index="1"]
-position = Vector2(0, 0.031152725)
+[node name="Sprite2D" parent="." index="2"]
+position = Vector2(0, -8)
 texture = ExtResource("6_uoga2")
+hframes = 4
 
-[node name="AttackRange" parent="." index="2"]
+[node name="AttackRange" parent="." index="3"]
 visible = false
-
-[node name="AnimationPlayer" parent="." index="4"]
-libraries = {
-&"": SubResource("AnimationLibrary_uoga2")
-}
 
 [node name="Brush" type="Sprite2D" parent="." index="5"]
 visible = false
 position = Vector2(0, -12.968847)
 texture = ExtResource("7_uoga2")
 
-[node name="ClickableArea" parent="." index="6"]
+[node name="AnimationPlayer" parent="." index="6"]
+libraries = {
+&"": SubResource("AnimationLibrary_uoga2")
+}
+
+[node name="ClickableArea" parent="." index="7"]
 position = Vector2(0, -7.9688473)
+collision_layer = 8
+collision_mask = 0
 
 [node name="CollisionShape2D" parent="ClickableArea" index="0"]
-position = Vector2(0, 8)
+position = Vector2(0, -0.015576363)

@@ -8,10 +8,10 @@
 [ext_resource type="Script" uid="uid://dqnovi8crfkd7" path="res://Scenes/Levels/debug_service.gd" id="5_30ow2"]
 [ext_resource type="Script" uid="uid://djxb7qbvtcs1k" path="res://Scenes/Levels/life_management_service.gd" id="6_iemmg"]
 [ext_resource type="Script" uid="uid://p68j6fld5d4b" path="res://Scenes/Levels/tower_purchase_service.gd" id="7_xghcx"]
-[ext_resource type="Texture2D" uid="uid://dwe8qeom1vpt6" path="res://Assets/Aseprite/Towers/BrushTowerV3_1x.png" id="8_fwp4i"]
 [ext_resource type="Script" uid="uid://djp760hnpubd0" path="res://Scenes/Levels/wave_service.gd" id="8_xghcx"]
 [ext_resource type="Script" uid="uid://btsrsskoiduuy" path="res://Resources/Waves/wave_data.gd" id="9_7ik2y"]
 [ext_resource type="Script" uid="uid://df3ab1bopu4qu" path="res://Scenes/Levels/gold_service.gd" id="9_71eip"]
+[ext_resource type="Texture2D" uid="uid://b3yy2i4rjcygv" path="res://Assets/Aseprite/Towers/SprayTower.png" id="9_go015"]
 [ext_resource type="PackedScene" uid="uid://d0n8nrvk3quix" path="res://Scenes/Ui/GoldUi/gold_ui.tscn" id="9_hr04v"]
 [ext_resource type="Resource" uid="uid://b3hll4ixvtwai" path="res://Resources/Waves/Test/gloplets.tres" id="10_1mc0y"]
 [ext_resource type="Resource" uid="uid://dertkcofwm6qg" path="res://Resources/Waves/Easy/wave1.tres" id="10_3o7cg"]
@@ -35,7 +35,7 @@
 [ext_resource type="Resource" uid="uid://ogvk4x1suasd" path="res://Resources/TowerStats/brush_tower_stats.tres" id="30_e1tbu"]
 [ext_resource type="PackedScene" uid="uid://co3864jx8ld0a" path="res://Scenes/Ui/ShowPauseMenuButtonUi/show_pause_menu_button_ui.tscn" id="30_nwww2"]
 [ext_resource type="Resource" uid="uid://ckna57nrkamxx" path="res://Resources/TowerStats/roller_tower_stats.tres" id="32_t8lfh"]
-[ext_resource type="Texture2D" uid="uid://chhv0w14ftmqa" path="res://Assets/Aseprite/Towers/BrushTowerV4.png" id="34_go015"]
+[ext_resource type="Texture2D" uid="uid://bg2qsbrq5gidy" path="res://Assets/Aseprite/Towers/BrushTower/BrushTowerV3_White_1x.png" id="34_go015"]
 [ext_resource type="Texture2D" uid="uid://dkuapx8njsker" path="res://Assets/Aseprite/Towers/RollerTower1x.png" id="36_go015"]
 [ext_resource type="PackedScene" uid="uid://d0o6176v7i4t3" path="res://Scenes/Ui/PauseMenuUi/pause_menu_ui.tscn" id="36_t8lfh"]
 
@@ -51,7 +51,7 @@ texture = ExtResource("4_lai3q")
 sources/0 = SubResource("TileSetAtlasSource_30ow2")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xghcx"]
-size = Vector2(14, 14)
+size = Vector2(8, 8)
 
 [sub_resource type="SphereMesh" id="SphereMesh_67sl2"]
 
@@ -124,13 +124,16 @@ collision_mask = 5
 
 [node name="SelectedTexture" type="Sprite2D" parent="Services/TowerPurchaseService/SelectedTowerArea"]
 z_index = 1
-texture = ExtResource("8_fwp4i")
+position = Vector2(0, -8)
+texture = ExtResource("9_go015")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Services/TowerPurchaseService/SelectedTowerArea"]
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_xghcx")
 
 [node name="SelectedTowerAttackRadius" type="MeshInstance2D" parent="Services/TowerPurchaseService/SelectedTowerArea"]
 modulate = Color(0.27022192, 0.27022192, 0.2702219, 0.19607843)
+position = Vector2(0, -1)
 scale = Vector2(42, 42)
 mesh = SubResource("SphereMesh_67sl2")
 
@@ -265,6 +268,7 @@ tower_name = "Roller"
 texture = ExtResource("36_go015")
 
 [node name="TowerDetailUi" parent="LevelUI" instance=ExtResource("28_vk7aq")]
+visible = false
 
 [node name="PauseMenuUi" parent="LevelUI" instance=ExtResource("36_t8lfh")]
 visible = false

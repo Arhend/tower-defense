@@ -1,6 +1,6 @@
 # The Highwayman Palette (Complete)
 
-A 18-color pixel art palette inspired by highwayman paintings - deep shadows, warm candlelight, romantic 18th-century atmosphere, with water, skin tones, and greenery.
+A 20-color pixel art palette inspired by highwayman paintings - deep shadows, warm candlelight, romantic 18th-century atmosphere, with water, skin tones, and greenery.
 
 ## Color Swatches
 
@@ -36,38 +36,16 @@ A 18-color pixel art palette inspired by highwayman paintings - deep shadows, wa
 17. **#d4a387** - Deeper Skin Tone (shadows on skin, tanned complexion)
 18. **#e6b89c** - Warm Skin Tone (faces, hands, candlelit flesh)
 
+### Neutrals
+19. **#6a6d78** - Cool Gray (smoke, fog, moonlit stone, pewter)
+20. **#e8ddd0** - Parchment White (moonlight, lace, paper, highlights)
+
 ## Palette Preview Links
-
-**Main Drama Colors (10 colors):**
-```
-https://coolors.co/0a0612-1a0f2e-3d1f47-6b2737-8b3a2f-b85c3a-d4894f-f4c466-2d4a59-8a1f3d
-```
-
-**Water & Skin Tones (5 colors):**
-```
-https://coolors.co/2d4a59-3a7a8f-5a9fb5-d4a387-e6b89c
-```
-
-**Greenery Collection (4 colors):**
-```
-https://coolors.co/1e3a2f-3a5a47-5d7a5e-8a9d6f
-```
-
-**All Colors Collection:**
 - Part 1 (Shadows & Drama): https://coolors.co/0a0612-1a0f2e-3d1f47-6b2737-8b3a2f
 - Part 2 (Warm & Cool): https://coolors.co/b85c3a-d4894f-f4c466-2d4a59-8a1f3d
 - Part 3 (Water & Skin): https://coolors.co/3a7a8f-5a9fb5-d4a387-e6b89c
 - Part 4 (Greenery): https://coolors.co/1e3a2f-3a5a47-5d7a5e-8a9d6f
-
-## Usage Guide
-
-- **Colors 1-3**: Deep shadows, nighttime scenes, mystery
-- **Colors 4-5**: Dramatic accents - blood, wine, passion
-- **Colors 6-9**: Main warm lighting - fire, candlelight, leather, gold
-- **Color 10**: Cool metallic elements, steel weapons, moonlight
-- **Colors 11-12**: Water rendering - deep reflections to bright highlights
-- **Colors 13-16**: Forest scenes, foliage, paths, wilderness
-- **Colors 17-18**: Skin tone range - shadows to highlights under warm light
+- Part 5 (Neutrals): https://coolors.co/6a6d78-e8ddd0
 
 ## Aesthetic Notes
 
