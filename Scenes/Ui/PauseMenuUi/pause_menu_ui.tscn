@@ -76,6 +76,10 @@ text = "Restart Map"
 layout_mode = 2
 text = "Exit to Menu"
 
+[node name="ExitToMainToDesktop" type="Button" parent="Background/VBoxContainer"]
+layout_mode = 2
+text = "Exit to Desktop"
+
 [node name="Spacer" type="Control" parent="Background/VBoxContainer"]
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
@@ -141,5 +145,6 @@ layout_mode = 2
 [connection signal="pressed" from="Background/ClosePauseMenuButton" to="." method="_on_close_pause_menu_button_pressed"]
 [connection signal="pressed" from="Background/VBoxContainer/RestartLevelButton" to="." method="_on_restart_level_button_pressed"]
 [connection signal="pressed" from="Background/VBoxContainer/ExitToMainMenuButton" to="." method="_on_exit_to_main_menu_button_pressed"]
+[connection signal="pressed" from="Background/VBoxContainer/ExitToMainToDesktop" to="." method="_on_exit_to_main_to_desktop_pressed"]
 [connection signal="pressed" from="ConfirmPanel/VBoxContainer/HBoxContainer/ConfirmButton" to="." method="_on_confirm_button_pressed"]
 [connection signal="pressed" from="ConfirmPanel/VBoxContainer/HBoxContainer/CancelButton" to="." method="_on_cancel_button_pressed"]

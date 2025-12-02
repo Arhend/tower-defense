@@ -7,7 +7,8 @@ const MAIN_MENU = "res://Scenes/MainMenu/main_menu.tscn"
 enum ConfirmModalActions {
     NONE,
     RESTART,
-    EXIT_TO_MAIN_MENU
+    EXIT_TO_MAIN_MENU,
+    EXIT_TO_DESKTOP,
 }
 
 @onready var confirm_panel = $ConfirmPanel
@@ -44,6 +45,8 @@ func show_confirm_modal(action: ConfirmModalActions):
             confirm_label.text = "Are you sure you wish to restart this map?"
         ConfirmModalActions.EXIT_TO_MAIN_MENU:
             confirm_label.text = "Are you sure you wish to exit to the main menu?"
+        ConfirmModalActions.EXIT_TO_DESKTOP:
+            confirm_label.text = "Are you sure you wish to close the game?"
 
         _:
             confirm_label.text = "What action was this?"
@@ -69,3 +72,8 @@ func _on_confirm_button_pressed():
         ConfirmModalActions.EXIT_TO_MAIN_MENU:
             Engine.time_scale = 1
             SceneManager.change_scene(MAIN_MENU)
+        ConfirmModalActions.EXIT_TO_DESKTOP:
+            get_tree().quit()
+            
+func _on_exit_to_main_to_desktop_pressed():
+    show_confirm_modal(ConfirmModalActions.EXIT_TO_DESKTOP)
